@@ -3,7 +3,8 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -38,20 +39,45 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	<div class="formbody">
 
-		<div class="formtitle"><span>客户添加</span></div>
+		<div class="formtitle"><span>修改客户信息</span></div>
+		<form  action="${pageContext.request.contextPath }/custom/custom_updateSubmit.action?custom" method="post" enctype="multipart/form-data">
 		<ul class="forminfo">
 			<li>
 				<label>客户姓名<b>*</b></label>
-				<input name="" type="text" class="dfinput" />
-				<i>填写用户真实姓名</i>
+				<input name="name" type="text" class="dfinput" value="${custom.name }" />
 			</li>
-
-			<li><label>关键字</label><input name="" type="text" class="dfinput" /><i>多个关键字用,隔开</i></li>
-			<li><label>是否审核</label><cite><input name="" type="radio" value="" checked="checked" />是&nbsp;&nbsp;&nbsp;&nbsp;<input name="" type="radio" value="" />否</cite></li>
-			<li><label>引用地址</label><input name="" type="text" class="dfinput" value="http://www..com/html/uidesign/" /></li>
-			<li><label>文章内容</label><textarea name="" cols="" rows="" class="textinput"></textarea></li>
-			<li><label>&nbsp;</label><input name="" type="button" class="btn" value="确认保存" /></li>
+			<li>
+				<label>客户性别<b>*</b></label>
+	        　　　　<h3>
+	        	男 &nbsp;<input  type="radio" value="0" name="sex"/>
+	        　　　　	女 &nbsp;<input  type="radio" value="1" name="sex"/>
+	        </h3>
+			</li>
+			
+			<li>
+				<label>出生日期<b>*</b></label>
+				<input name="birthday" type="text" class="dfinput" />
+			</li>
+			<li>
+				<label>家庭住址<b>*</b></label>
+				<input name="" type="text" class="dfinput" />
+			</li>
+			<li>
+				<label>手机号<b>*</b></label>
+				<input name="phone" type="text" class="dfinput" value="${custom.phone}" />
+			</li>
+			<li>
+				<label>微   信<b></b></label>
+				<input name="" type="text" class="dfinput" value="${custom.wechat}" />
+			</li>
+			<li>
+				<label>邮   箱<b></b></label>
+				<input name="" type="text" class="dfinput" />
+				
+			</li>
+			<li><label>&nbsp;</label><input type="submit" class="btn" value="保存提交" /></li>
 		</ul>
+		</form>
 	</div>
   </body>
 </html>

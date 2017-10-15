@@ -17,5 +17,26 @@ public class CustomServiceImpl implements CustomService {
 		
 		
 	}
+	@Override
+	public Custom findCustomById(String customid) throws Exception {
+		
+		return customMapper.selectByPrimaryKey(customid);
+	}
 
+	@Override
+	public void updateCustom(String customid, Custom custom) throws Exception {
+		// 更新商品信息
+		custom.setCustomid("customid");
+		customMapper.updateByPrimaryKey(custom);
+		
+	}
+
+	
+	
+
+	
+
+	
+
+	
 }

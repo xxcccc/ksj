@@ -130,7 +130,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td><span>${custom.integral }</span></td>
 						<td>
 							<a href="${pageContext.request.contextPath }/user/custom_info.action?customid=${custom.customid }" class="tablelink">查看详情</a>
-							<a href="${pageContext.request.contextPath }/user/custom_update.action?customid=${custom.customid }" class="tablelink">修改</a>
+							<a href="${pageContext.request.contextPath }/custom/custom_update.action?customid=${custom.customid }" class="tablelink">修改</a>
 							<a href="${pageContext.request.contextPath }/user/custom_delete.action?customid=${custom.customid }" class="tablelink"> 删除</a>
 						</td>
 					</tr>
