@@ -1,7 +1,25 @@
 package com.codet.util;
 
 public class CommonConstant {
-	public static final String USER_CONTEXT="user";
+	
+	//客户
+	/**
+	 * 客户登录存入session中的
+	 */
 	public static final String CUSTOM_CONTEXT="custom";
-	public static final String ITEM_CONTEXT="item";
+	/**
+	 * 用于用户信息列表显示
+	 */
+	public static final String CUSTOM_LIST="customList";
+	/**
+	 * 用于更新客户信息时使用
+	 */
+	public static final String CUSTOM_UPDATE="customUpdate";
+	
+	//用户
+	/**
+	 * 用户登录存入session中的
+	 */
+	public static final String USER_CONTEXT="user";
+	
 }

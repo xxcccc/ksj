@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.codet.back.custom.mapper.CustomMapper">
+	<select id="findCustomByCustomid" parameterType="java.lang.String" resultType="com.codet.pojo.Custom">
+		select * from Custom where customId = ${customid}%
+	</select>
+	
+	<select id="findCustomByName" parameterType="string" resultType="com.codet.pojo.Custom">
+		select * from Custom where name like '%${_parameter}%'
+	</select>
+</mapper>

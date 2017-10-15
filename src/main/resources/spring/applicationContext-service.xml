@@ -13,11 +13,6 @@
 		http://www.springframework.org/schema/tx 
 		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd ">
 
-	<!-- 环境测试的service -->
-	<bean id="testUserServiceImpl" class="com.codet.testuser.service.impl.TestUserServiceImpl"></bean>
-	<!-- <bean id="userServiceImpl" class="com.codet.service.impl.UserServiceImpl"></bean> -->
-
-	<bean id="userServiceImpl" class="com.codet.user.service.impl.UserServiceImpl"></bean>
-	<bean id="customServiceImpl" class="com.codet.custom.service.impl.CustomServiceImpl"></bean>
-	<bean id="testDBServiceImpl" class="com.codet.util.TestDBServiceImpl"></bean>
+	<bean id="userServiceImpl" class="com.codet.back.user.service.impl.UserServiceImpl"></bean>
+	<bean id="customServiceImpl" class="com.codet.back.custom.service.impl.CustomServiceImpl"></bean>
 </beans>

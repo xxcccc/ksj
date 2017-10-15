@@ -184,10 +184,10 @@
 					if (/^\d+$/.test(pageNo)) {
 						if (pageNo > 0 && pageNo <= <%=allPages%>) {
 							return true;
-						}
-					}
+						};
+					};
 					return false;
-				}
+				};
 				
 			</script>
 	</body>

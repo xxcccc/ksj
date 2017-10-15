@@ -60,7 +60,7 @@
 			<span class="systemlogo"></span>
 
 			<div class="loginbox">
-				<form action="${pageContext.request.contextPath }/user/login.action" method="post">
+				<form action="${pageContext.request.contextPath }/back/user/login.action" method="post">
 					<ul>
 						<li><input name="username" type="text" class="loginuser" value="" onclick="JavaScript:this.value=''" /></li>
 						<li><input name="password" type="password" class="loginpwd" value="" onclick="JavaScript:this.value=''" /></li>
