@@ -24,7 +24,7 @@ public class CustomController {
 	
 		customService.customInsert(custom);
 		
-		
+		System.out.print("----");
 		return "page/user/custom_list";
 	}
 	
