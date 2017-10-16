@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.codet.mapper.CoursedetailedMapper" >
+  <resultMap id="BaseResultMap" type="com.codet.pojo.Coursedetailed" >
+    <id column="courseDetailedId" property="coursedetailedid" jdbcType="INTEGER" />
+    <result column="courseId" property="courseid" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="info" property="info" jdbcType="VARCHAR" />
+    <result column="link" property="link" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    courseDetailedId, courseId, title, info, link
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.codet.pojo.CoursedetailedExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CourseDetailed
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from CourseDetailed
+    where courseDetailedId = #{coursedetailedid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from CourseDetailed
+    where courseDetailedId = #{coursedetailedid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.codet.pojo.CoursedetailedExample" >
+    delete from CourseDetailed
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.codet.pojo.Coursedetailed" >
+    insert into CourseDetailed (courseDetailedId, courseId, title, 
+      info, link)
+    values (#{coursedetailedid,jdbcType=INTEGER}, #{courseid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, 
+      #{info,jdbcType=VARCHAR}, #{link,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.codet.pojo.Coursedetailed" >
+    insert into CourseDetailed
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="coursedetailedid != null" >
+        courseDetailedId,
+      </if>
+      <if test="courseid != null" >
+        courseId,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="info != null" >
+        info,
+      </if>
+      <if test="link != null" >
+        link,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="coursedetailedid != null" >
+        #{coursedetailedid,jdbcType=INTEGER},
+      </if>
+      <if test="courseid != null" >
+        #{courseid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="info != null" >
+        #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="link != null" >
+        #{link,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.codet.pojo.CoursedetailedExample" resultType="java.lang.Integer" >
+    select count(*) from CourseDetailed
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update CourseDetailed
+    <set >
+      <if test="record.coursedetailedid != null" >
+        courseDetailedId = #{record.coursedetailedid,jdbcType=INTEGER},
+      </if>
+      <if test="record.courseid != null" >
+        courseId = #{record.courseid,jdbcType=INTEGER},
+      </if>
+      <if test="record.title != null" >
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.info != null" >
+        info = #{record.info,jdbcType=VARCHAR},
+      </if>
+      <if test="record.link != null" >
+        link = #{record.link,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update CourseDetailed
+    set courseDetailedId = #{record.coursedetailedid,jdbcType=INTEGER},
+      courseId = #{record.courseid,jdbcType=INTEGER},
+      title = #{record.title,jdbcType=VARCHAR},
+      info = #{record.info,jdbcType=VARCHAR},
+      link = #{record.link,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.codet.pojo.Coursedetailed" >
+    update CourseDetailed
+    <set >
+      <if test="courseid != null" >
+        courseId = #{courseid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="info != null" >
+        info = #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="link != null" >
+        link = #{link,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where courseDetailedId = #{coursedetailedid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.codet.pojo.Coursedetailed" >
+    update CourseDetailed
+    set courseId = #{courseid,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      info = #{info,jdbcType=VARCHAR},
+      link = #{link,jdbcType=VARCHAR}
+    where courseDetailedId = #{coursedetailedid,jdbcType=INTEGER}
+  </update>
+</mapper>

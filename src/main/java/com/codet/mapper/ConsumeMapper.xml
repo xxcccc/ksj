@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.codet.mapper.ConsumeMapper" >
+  <resultMap id="BaseResultMap" type="com.codet.pojo.Consume" >
+    <id column="consumeId" property="consumeid" jdbcType="INTEGER" />
+    <result column="customId" property="customid" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="DATE" />
+    <result column="lastConsumeTime" property="lastconsumetime" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    consumeId, customId, createtime, lastConsumeTime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.codet.pojo.ConsumeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from Consume
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from Consume
+    where consumeId = #{consumeid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from Consume
+    where consumeId = #{consumeid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.codet.pojo.ConsumeExample" >
+    delete from Consume
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.codet.pojo.Consume" >
+    insert into Consume (consumeId, customId, createtime, 
+      lastConsumeTime)
+    values (#{consumeid,jdbcType=INTEGER}, #{customid,jdbcType=VARCHAR}, #{createtime,jdbcType=DATE}, 
+      #{lastconsumetime,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.codet.pojo.Consume" >
+    insert into Consume
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="consumeid != null" >
+        consumeId,
+      </if>
+      <if test="customid != null" >
+        customId,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="lastconsumetime != null" >
+        lastConsumeTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="consumeid != null" >
+        #{consumeid,jdbcType=INTEGER},
+      </if>
+      <if test="customid != null" >
+        #{customid,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=DATE},
+      </if>
+      <if test="lastconsumetime != null" >
+        #{lastconsumetime,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.codet.pojo.ConsumeExample" resultType="java.lang.Integer" >
+    select count(*) from Consume
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update Consume
+    <set >
+      <if test="record.consumeid != null" >
+        consumeId = #{record.consumeid,jdbcType=INTEGER},
+      </if>
+      <if test="record.customid != null" >
+        customId = #{record.customid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createtime != null" >
+        createtime = #{record.createtime,jdbcType=DATE},
+      </if>
+      <if test="record.lastconsumetime != null" >
+        lastConsumeTime = #{record.lastconsumetime,jdbcType=DATE},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update Consume
+    set consumeId = #{record.consumeid,jdbcType=INTEGER},
+      customId = #{record.customid,jdbcType=VARCHAR},
+      createtime = #{record.createtime,jdbcType=DATE},
+      lastConsumeTime = #{record.lastconsumetime,jdbcType=DATE}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.codet.pojo.Consume" >
+    update Consume
+    <set >
+      <if test="customid != null" >
+        customId = #{customid,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=DATE},
+      </if>
+      <if test="lastconsumetime != null" >
+        lastConsumeTime = #{lastconsumetime,jdbcType=DATE},
+      </if>
+    </set>
+    where consumeId = #{consumeid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.codet.pojo.Consume" >
+    update Consume
+    set customId = #{customid,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=DATE},
+      lastConsumeTime = #{lastconsumetime,jdbcType=DATE}
+    where consumeId = #{consumeid,jdbcType=INTEGER}
+  </update>
+</mapper>

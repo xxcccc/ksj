@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.codet.mapper.BrowseMapper" >
+  <resultMap id="BaseResultMap" type="com.codet.pojo.Browse" >
+    <id column="browseId" property="browseid" jdbcType="INTEGER" />
+    <result column="customId" property="customid" jdbcType="VARCHAR" />
+    <result column="itemTypeId" property="itemtypeid" jdbcType="INTEGER" />
+    <result column="createtime" property="createtime" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    browseId, customId, itemTypeId, createtime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.codet.pojo.BrowseExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from Browse
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from Browse
+    where browseId = #{browseid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from Browse
+    where browseId = #{browseid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.codet.pojo.BrowseExample" >
+    delete from Browse
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.codet.pojo.Browse" >
+    insert into Browse (browseId, customId, itemTypeId, 
+      createtime)
+    values (#{browseid,jdbcType=INTEGER}, #{customid,jdbcType=VARCHAR}, #{itemtypeid,jdbcType=INTEGER}, 
+      #{createtime,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.codet.pojo.Browse" >
+    insert into Browse
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="browseid != null" >
+        browseId,
+      </if>
+      <if test="customid != null" >
+        customId,
+      </if>
+      <if test="itemtypeid != null" >
+        itemTypeId,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="browseid != null" >
+        #{browseid,jdbcType=INTEGER},
+      </if>
+      <if test="customid != null" >
+        #{customid,jdbcType=VARCHAR},
+      </if>
+      <if test="itemtypeid != null" >
+        #{itemtypeid,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.codet.pojo.BrowseExample" resultType="java.lang.Integer" >
+    select count(*) from Browse
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update Browse
+    <set >
+      <if test="record.browseid != null" >
+        browseId = #{record.browseid,jdbcType=INTEGER},
+      </if>
+      <if test="record.customid != null" >
+        customId = #{record.customid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.itemtypeid != null" >
+        itemTypeId = #{record.itemtypeid,jdbcType=INTEGER},
+      </if>
+      <if test="record.createtime != null" >
+        createtime = #{record.createtime,jdbcType=DATE},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update Browse
+    set browseId = #{record.browseid,jdbcType=INTEGER},
+      customId = #{record.customid,jdbcType=VARCHAR},
+      itemTypeId = #{record.itemtypeid,jdbcType=INTEGER},
+      createtime = #{record.createtime,jdbcType=DATE}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.codet.pojo.Browse" >
+    update Browse
+    <set >
+      <if test="customid != null" >
+        customId = #{customid,jdbcType=VARCHAR},
+      </if>
+      <if test="itemtypeid != null" >
+        itemTypeId = #{itemtypeid,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=DATE},
+      </if>
+    </set>
+    where browseId = #{browseid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.codet.pojo.Browse" >
+    update Browse
+    set customId = #{customid,jdbcType=VARCHAR},
+      itemTypeId = #{itemtypeid,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=DATE}
+    where browseId = #{browseid,jdbcType=INTEGER}
+  </update>
+</mapper>

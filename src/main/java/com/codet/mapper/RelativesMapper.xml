@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.codet.mapper.RelativesMapper" >
+  <resultMap id="BaseResultMap" type="com.codet.pojo.Relatives" >
+    <id column="relativesId" property="relativesid" jdbcType="INTEGER" />
+    <result column="relativesTypeId" property="relativestypeid" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="phone1" property="phone1" jdbcType="VARCHAR" />
+    <result column="phone2" property="phone2" jdbcType="VARCHAR" />
+    <result column="info" property="info" jdbcType="VARCHAR" />
+    <result column="wechat" property="wechat" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    relativesId, relativesTypeId, name, phone1, phone2, info, wechat
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.codet.pojo.RelativesExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from Relatives
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from Relatives
+    where relativesId = #{relativesid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from Relatives
+    where relativesId = #{relativesid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.codet.pojo.RelativesExample" >
+    delete from Relatives
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.codet.pojo.Relatives" >
+    insert into Relatives (relativesId, relativesTypeId, name, 
+      phone1, phone2, info, 
+      wechat)
+    values (#{relativesid,jdbcType=INTEGER}, #{relativestypeid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{phone1,jdbcType=VARCHAR}, #{phone2,jdbcType=VARCHAR}, #{info,jdbcType=VARCHAR}, 
+      #{wechat,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.codet.pojo.Relatives" >
+    insert into Relatives
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="relativesid != null" >
+        relativesId,
+      </if>
+      <if test="relativestypeid != null" >
+        relativesTypeId,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="phone1 != null" >
+        phone1,
+      </if>
+      <if test="phone2 != null" >
+        phone2,
+      </if>
+      <if test="info != null" >
+        info,
+      </if>
+      <if test="wechat != null" >
+        wechat,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="relativesid != null" >
+        #{relativesid,jdbcType=INTEGER},
+      </if>
+      <if test="relativestypeid != null" >
+        #{relativestypeid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone1 != null" >
+        #{phone1,jdbcType=VARCHAR},
+      </if>
+      <if test="phone2 != null" >
+        #{phone2,jdbcType=VARCHAR},
+      </if>
+      <if test="info != null" >
+        #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null" >
+        #{wechat,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.codet.pojo.RelativesExample" resultType="java.lang.Integer" >
+    select count(*) from Relatives
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update Relatives
+    <set >
+      <if test="record.relativesid != null" >
+        relativesId = #{record.relativesid,jdbcType=INTEGER},
+      </if>
+      <if test="record.relativestypeid != null" >
+        relativesTypeId = #{record.relativestypeid,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phone1 != null" >
+        phone1 = #{record.phone1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phone2 != null" >
+        phone2 = #{record.phone2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.info != null" >
+        info = #{record.info,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wechat != null" >
+        wechat = #{record.wechat,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update Relatives
+    set relativesId = #{record.relativesid,jdbcType=INTEGER},
+      relativesTypeId = #{record.relativestypeid,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      phone1 = #{record.phone1,jdbcType=VARCHAR},
+      phone2 = #{record.phone2,jdbcType=VARCHAR},
+      info = #{record.info,jdbcType=VARCHAR},
+      wechat = #{record.wechat,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.codet.pojo.Relatives" >
+    update Relatives
+    <set >
+      <if test="relativestypeid != null" >
+        relativesTypeId = #{relativestypeid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone1 != null" >
+        phone1 = #{phone1,jdbcType=VARCHAR},
+      </if>
+      <if test="phone2 != null" >
+        phone2 = #{phone2,jdbcType=VARCHAR},
+      </if>
+      <if test="info != null" >
+        info = #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null" >
+        wechat = #{wechat,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where relativesId = #{relativesid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.codet.pojo.Relatives" >
+    update Relatives
+    set relativesTypeId = #{relativestypeid,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      phone1 = #{phone1,jdbcType=VARCHAR},
+      phone2 = #{phone2,jdbcType=VARCHAR},
+      info = #{info,jdbcType=VARCHAR},
+      wechat = #{wechat,jdbcType=VARCHAR}
+    where relativesId = #{relativesid,jdbcType=INTEGER}
+  </update>
+</mapper>

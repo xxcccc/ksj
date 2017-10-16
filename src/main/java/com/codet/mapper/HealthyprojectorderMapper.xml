@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.codet.mapper.HealthyprojectorderMapper" >
+  <resultMap id="BaseResultMap" type="com.codet.pojo.Healthyprojectorder" >
+    <id column="healthyProjectOrderId" property="healthyprojectorderid" jdbcType="INTEGER" />
+    <result column="customId" property="customid" jdbcType="VARCHAR" />
+    <result column="healthyProjectDayArrangeId" property="healthyprojectdayarrangeid" jdbcType="INTEGER" />
+    <result column="time" property="time" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    healthyProjectOrderId, customId, healthyProjectDayArrangeId, time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.codet.pojo.HealthyprojectorderExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from HealthyProjectOrder
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from HealthyProjectOrder
+    where healthyProjectOrderId = #{healthyprojectorderid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from HealthyProjectOrder
+    where healthyProjectOrderId = #{healthyprojectorderid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.codet.pojo.HealthyprojectorderExample" >
+    delete from HealthyProjectOrder
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.codet.pojo.Healthyprojectorder" >
+    insert into HealthyProjectOrder (healthyProjectOrderId, customId, 
+      healthyProjectDayArrangeId, time)
+    values (#{healthyprojectorderid,jdbcType=INTEGER}, #{customid,jdbcType=VARCHAR}, 
+      #{healthyprojectdayarrangeid,jdbcType=INTEGER}, #{time,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.codet.pojo.Healthyprojectorder" >
+    insert into HealthyProjectOrder
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="healthyprojectorderid != null" >
+        healthyProjectOrderId,
+      </if>
+      <if test="customid != null" >
+        customId,
+      </if>
+      <if test="healthyprojectdayarrangeid != null" >
+        healthyProjectDayArrangeId,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="healthyprojectorderid != null" >
+        #{healthyprojectorderid,jdbcType=INTEGER},
+      </if>
+      <if test="customid != null" >
+        #{customid,jdbcType=VARCHAR},
+      </if>
+      <if test="healthyprojectdayarrangeid != null" >
+        #{healthyprojectdayarrangeid,jdbcType=INTEGER},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.codet.pojo.HealthyprojectorderExample" resultType="java.lang.Integer" >
+    select count(*) from HealthyProjectOrder
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update HealthyProjectOrder
+    <set >
+      <if test="record.healthyprojectorderid != null" >
+        healthyProjectOrderId = #{record.healthyprojectorderid,jdbcType=INTEGER},
+      </if>
+      <if test="record.customid != null" >
+        customId = #{record.customid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.healthyprojectdayarrangeid != null" >
+        healthyProjectDayArrangeId = #{record.healthyprojectdayarrangeid,jdbcType=INTEGER},
+      </if>
+      <if test="record.time != null" >
+        time = #{record.time,jdbcType=DATE},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update HealthyProjectOrder
+    set healthyProjectOrderId = #{record.healthyprojectorderid,jdbcType=INTEGER},
+      customId = #{record.customid,jdbcType=VARCHAR},
+      healthyProjectDayArrangeId = #{record.healthyprojectdayarrangeid,jdbcType=INTEGER},
+      time = #{record.time,jdbcType=DATE}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.codet.pojo.Healthyprojectorder" >
+    update HealthyProjectOrder
+    <set >
+      <if test="customid != null" >
+        customId = #{customid,jdbcType=VARCHAR},
+      </if>
+      <if test="healthyprojectdayarrangeid != null" >
+        healthyProjectDayArrangeId = #{healthyprojectdayarrangeid,jdbcType=INTEGER},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=DATE},
+      </if>
+    </set>
+    where healthyProjectOrderId = #{healthyprojectorderid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.codet.pojo.Healthyprojectorder" >
+    update HealthyProjectOrder
+    set customId = #{customid,jdbcType=VARCHAR},
+      healthyProjectDayArrangeId = #{healthyprojectdayarrangeid,jdbcType=INTEGER},
+      time = #{time,jdbcType=DATE}
+    where healthyProjectOrderId = #{healthyprojectorderid,jdbcType=INTEGER}
+  </update>
+</mapper>

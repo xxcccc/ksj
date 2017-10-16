@@ -3,13 +3,13 @@ package com.codet.pojo;
 import java.util.Date;
 
 public class User {
-    private Integer userId;
+    private Integer userid;
+
+    private Integer orgid;
+
+    private Integer cityid;
 
     private String username;
-
-    private Integer orgId;
-
-    private Integer cityId;
 
     private String name;
 
@@ -29,12 +29,28 @@ public class User {
 
     private String password;
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getUserid() {
+        return userid;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUserid(Integer userid) {
+        this.userid = userid;
+    }
+
+    public Integer getOrgid() {
+        return orgid;
+    }
+
+    public void setOrgid(Integer orgid) {
+        this.orgid = orgid;
+    }
+
+    public Integer getCityid() {
+        return cityid;
+    }
+
+    public void setCityid(Integer cityid) {
+        this.cityid = cityid;
     }
 
     public String getUsername() {
@@ -43,22 +59,6 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username == null ? null : username.trim();
-    }
-
-    public Integer getOrgId() {
-        return orgId;
-    }
-
-    public void setOrgId(Integer orgId) {
-        this.orgId = orgId;
-    }
-
-    public Integer getCityId() {
-        return cityId;
-    }
-
-    public void setCityId(Integer cityId) {
-        this.cityId = cityId;
     }
 
     public String getName() {
@@ -132,5 +132,4 @@ public class User {
     public void setPassword(String password) {
         this.password = password == null ? null : password.trim();
     }
-    
 }

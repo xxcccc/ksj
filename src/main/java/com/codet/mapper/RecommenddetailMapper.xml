@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.codet.mapper.RecommenddetailMapper" >
+  <resultMap id="BaseResultMap" type="com.codet.pojo.Recommenddetail" >
+    <id column="recommendDetailId" property="recommenddetailid" jdbcType="INTEGER" />
+    <result column="customItemRecommendId" property="customitemrecommendid" jdbcType="INTEGER" />
+    <result column="itemId" property="itemid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    recommendDetailId, customItemRecommendId, itemId
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.codet.pojo.RecommenddetailExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from RecommendDetail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from RecommendDetail
+    where recommendDetailId = #{recommenddetailid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from RecommendDetail
+    where recommendDetailId = #{recommenddetailid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.codet.pojo.RecommenddetailExample" >
+    delete from RecommendDetail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.codet.pojo.Recommenddetail" >
+    insert into RecommendDetail (recommendDetailId, customItemRecommendId, 
+      itemId)
+    values (#{recommenddetailid,jdbcType=INTEGER}, #{customitemrecommendid,jdbcType=INTEGER}, 
+      #{itemid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.codet.pojo.Recommenddetail" >
+    insert into RecommendDetail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="recommenddetailid != null" >
+        recommendDetailId,
+      </if>
+      <if test="customitemrecommendid != null" >
+        customItemRecommendId,
+      </if>
+      <if test="itemid != null" >
+        itemId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="recommenddetailid != null" >
+        #{recommenddetailid,jdbcType=INTEGER},
+      </if>
+      <if test="customitemrecommendid != null" >
+        #{customitemrecommendid,jdbcType=INTEGER},
+      </if>
+      <if test="itemid != null" >
+        #{itemid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.codet.pojo.RecommenddetailExample" resultType="java.lang.Integer" >
+    select count(*) from RecommendDetail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update RecommendDetail
+    <set >
+      <if test="record.recommenddetailid != null" >
+        recommendDetailId = #{record.recommenddetailid,jdbcType=INTEGER},
+      </if>
+      <if test="record.customitemrecommendid != null" >
+        customItemRecommendId = #{record.customitemrecommendid,jdbcType=INTEGER},
+      </if>
+      <if test="record.itemid != null" >
+        itemId = #{record.itemid,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update RecommendDetail
+    set recommendDetailId = #{record.recommenddetailid,jdbcType=INTEGER},
+      customItemRecommendId = #{record.customitemrecommendid,jdbcType=INTEGER},
+      itemId = #{record.itemid,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.codet.pojo.Recommenddetail" >
+    update RecommendDetail
+    <set >
+      <if test="customitemrecommendid != null" >
+        customItemRecommendId = #{customitemrecommendid,jdbcType=INTEGER},
+      </if>
+      <if test="itemid != null" >
+        itemId = #{itemid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where recommendDetailId = #{recommenddetailid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.codet.pojo.Recommenddetail" >
+    update RecommendDetail
+    set customItemRecommendId = #{customitemrecommendid,jdbcType=INTEGER},
+      itemId = #{itemid,jdbcType=INTEGER}
+    where recommendDetailId = #{recommenddetailid,jdbcType=INTEGER}
+  </update>
+</mapper>

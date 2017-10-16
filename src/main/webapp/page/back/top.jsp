@@ -39,7 +39,7 @@
 
 	<ul class="nav">
 		<li>
-			<a href="default.html" target="rightFrame" class="selected"><img src="images/icon01.png"
+			<a href="${pageContext.request.contextPath }/page/back/custom_info/left.jsp" target="leftFrame" class="selected"><img src="images/icon01.png"
 				title="工作台" />
 				<h2>客户信息管理</h2></a>
 		</li>
@@ -48,7 +48,7 @@
 				<h2>客户健康管理</h2></a>
 		</li>
 		<li>
-			<a href="imglist.html" target="rightFrame"><img src="images/icon03.png" title="模块设计" />
+			<a href="${pageContext.request.contextPath }/page/back/interview/left.jsp" target="leftFrame"><img src="images/icon03.png" title="模块设计" />
 				<h2>访谈管理</h2></a>
 		</li>
 		<li>
@@ -62,6 +62,10 @@
 		<li>
 			<a href="tab.html" target="rightFrame"><img src="images/icon06.png" title="系统设置" />
 				<h2>统计数据</h2></a>
+		</li>
+		<li>
+			<a href="tab.html" target="rightFrame"><img src="images/icon06.png" title="系统设置" />
+				<h2>活动发布</h2></a>
 		</li>
 		<li>
 			<a href="tab.html" target="rightFrame"><img src="images/icon06.png" title="系统设置" />

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.codet.mapper.OrderdetailMapper" >
+  <resultMap id="BaseResultMap" type="com.codet.pojo.Orderdetail" >
+    <id column="orderDetailId" property="orderdetailid" jdbcType="INTEGER" />
+    <result column="tOrderId" property="torderid" jdbcType="INTEGER" />
+    <result column="itemId" property="itemid" jdbcType="INTEGER" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="sumPrice" property="sumprice" jdbcType="REAL" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    orderDetailId, tOrderId, itemId, num, sumPrice
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.codet.pojo.OrderdetailExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from OrderDetail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from OrderDetail
+    where orderDetailId = #{orderdetailid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from OrderDetail
+    where orderDetailId = #{orderdetailid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.codet.pojo.OrderdetailExample" >
+    delete from OrderDetail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.codet.pojo.Orderdetail" >
+    insert into OrderDetail (orderDetailId, tOrderId, itemId, 
+      num, sumPrice)
+    values (#{orderdetailid,jdbcType=INTEGER}, #{torderid,jdbcType=INTEGER}, #{itemid,jdbcType=INTEGER}, 
+      #{num,jdbcType=INTEGER}, #{sumprice,jdbcType=REAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.codet.pojo.Orderdetail" >
+    insert into OrderDetail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orderdetailid != null" >
+        orderDetailId,
+      </if>
+      <if test="torderid != null" >
+        tOrderId,
+      </if>
+      <if test="itemid != null" >
+        itemId,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="sumprice != null" >
+        sumPrice,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orderdetailid != null" >
+        #{orderdetailid,jdbcType=INTEGER},
+      </if>
+      <if test="torderid != null" >
+        #{torderid,jdbcType=INTEGER},
+      </if>
+      <if test="itemid != null" >
+        #{itemid,jdbcType=INTEGER},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="sumprice != null" >
+        #{sumprice,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.codet.pojo.OrderdetailExample" resultType="java.lang.Integer" >
+    select count(*) from OrderDetail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update OrderDetail
+    <set >
+      <if test="record.orderdetailid != null" >
+        orderDetailId = #{record.orderdetailid,jdbcType=INTEGER},
+      </if>
+      <if test="record.torderid != null" >
+        tOrderId = #{record.torderid,jdbcType=INTEGER},
+      </if>
+      <if test="record.itemid != null" >
+        itemId = #{record.itemid,jdbcType=INTEGER},
+      </if>
+      <if test="record.num != null" >
+        num = #{record.num,jdbcType=INTEGER},
+      </if>
+      <if test="record.sumprice != null" >
+        sumPrice = #{record.sumprice,jdbcType=REAL},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update OrderDetail
+    set orderDetailId = #{record.orderdetailid,jdbcType=INTEGER},
+      tOrderId = #{record.torderid,jdbcType=INTEGER},
+      itemId = #{record.itemid,jdbcType=INTEGER},
+      num = #{record.num,jdbcType=INTEGER},
+      sumPrice = #{record.sumprice,jdbcType=REAL}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.codet.pojo.Orderdetail" >
+    update OrderDetail
+    <set >
+      <if test="torderid != null" >
+        tOrderId = #{torderid,jdbcType=INTEGER},
+      </if>
+      <if test="itemid != null" >
+        itemId = #{itemid,jdbcType=INTEGER},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="sumprice != null" >
+        sumPrice = #{sumprice,jdbcType=REAL},
+      </if>
+    </set>
+    where orderDetailId = #{orderdetailid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.codet.pojo.Orderdetail" >
+    update OrderDetail
+    set tOrderId = #{torderid,jdbcType=INTEGER},
+      itemId = #{itemid,jdbcType=INTEGER},
+      num = #{num,jdbcType=INTEGER},
+      sumPrice = #{sumprice,jdbcType=REAL}
+    where orderDetailId = #{orderdetailid,jdbcType=INTEGER}
+  </update>
+</mapper>

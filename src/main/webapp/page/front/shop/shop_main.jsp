@@ -244,7 +244,7 @@
 			<a href="Index.html"><img src="images/logo.png" /></a>
 		</div>
 		<div class="search">
-			<form>
+			<form action="${pageConext.request.contextPath }/">
 				<input type="text" value="" class="s_ipt" />
 				<input type="submit" value="搜索" class="s_btn" />
 			</form>

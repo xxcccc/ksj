@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.codet.mapper.HealthyprojectdayarrangeMapper" >
+  <resultMap id="BaseResultMap" type="com.codet.pojo.Healthyprojectdayarrange" >
+    <id column="healthyProjectDayArrangeId" property="healthyprojectdayarrangeid" jdbcType="INTEGER" />
+    <result column="healthyProjectId" property="healthyprojectid" jdbcType="INTEGER" />
+    <result column="maxServerNum" property="maxservernum" jdbcType="INTEGER" />
+    <result column="orderNum" property="ordernum" jdbcType="INTEGER" />
+    <result column="time" property="time" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    healthyProjectDayArrangeId, healthyProjectId, maxServerNum, orderNum, time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.codet.pojo.HealthyprojectdayarrangeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from HealthyProjectDayArrange
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from HealthyProjectDayArrange
+    where healthyProjectDayArrangeId = #{healthyprojectdayarrangeid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from HealthyProjectDayArrange
+    where healthyProjectDayArrangeId = #{healthyprojectdayarrangeid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.codet.pojo.HealthyprojectdayarrangeExample" >
+    delete from HealthyProjectDayArrange
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.codet.pojo.Healthyprojectdayarrange" >
+    insert into HealthyProjectDayArrange (healthyProjectDayArrangeId, healthyProjectId, 
+      maxServerNum, orderNum, time
+      )
+    values (#{healthyprojectdayarrangeid,jdbcType=INTEGER}, #{healthyprojectid,jdbcType=INTEGER}, 
+      #{maxservernum,jdbcType=INTEGER}, #{ordernum,jdbcType=INTEGER}, #{time,jdbcType=DATE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.codet.pojo.Healthyprojectdayarrange" >
+    insert into HealthyProjectDayArrange
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="healthyprojectdayarrangeid != null" >
+        healthyProjectDayArrangeId,
+      </if>
+      <if test="healthyprojectid != null" >
+        healthyProjectId,
+      </if>
+      <if test="maxservernum != null" >
+        maxServerNum,
+      </if>
+      <if test="ordernum != null" >
+        orderNum,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="healthyprojectdayarrangeid != null" >
+        #{healthyprojectdayarrangeid,jdbcType=INTEGER},
+      </if>
+      <if test="healthyprojectid != null" >
+        #{healthyprojectid,jdbcType=INTEGER},
+      </if>
+      <if test="maxservernum != null" >
+        #{maxservernum,jdbcType=INTEGER},
+      </if>
+      <if test="ordernum != null" >
+        #{ordernum,jdbcType=INTEGER},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.codet.pojo.HealthyprojectdayarrangeExample" resultType="java.lang.Integer" >
+    select count(*) from HealthyProjectDayArrange
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update HealthyProjectDayArrange
+    <set >
+      <if test="record.healthyprojectdayarrangeid != null" >
+        healthyProjectDayArrangeId = #{record.healthyprojectdayarrangeid,jdbcType=INTEGER},
+      </if>
+      <if test="record.healthyprojectid != null" >
+        healthyProjectId = #{record.healthyprojectid,jdbcType=INTEGER},
+      </if>
+      <if test="record.maxservernum != null" >
+        maxServerNum = #{record.maxservernum,jdbcType=INTEGER},
+      </if>
+      <if test="record.ordernum != null" >
+        orderNum = #{record.ordernum,jdbcType=INTEGER},
+      </if>
+      <if test="record.time != null" >
+        time = #{record.time,jdbcType=DATE},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update HealthyProjectDayArrange
+    set healthyProjectDayArrangeId = #{record.healthyprojectdayarrangeid,jdbcType=INTEGER},
+      healthyProjectId = #{record.healthyprojectid,jdbcType=INTEGER},
+      maxServerNum = #{record.maxservernum,jdbcType=INTEGER},
+      orderNum = #{record.ordernum,jdbcType=INTEGER},
+      time = #{record.time,jdbcType=DATE}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.codet.pojo.Healthyprojectdayarrange" >
+    update HealthyProjectDayArrange
+    <set >
+      <if test="healthyprojectid != null" >
+        healthyProjectId = #{healthyprojectid,jdbcType=INTEGER},
+      </if>
+      <if test="maxservernum != null" >
+        maxServerNum = #{maxservernum,jdbcType=INTEGER},
+      </if>
+      <if test="ordernum != null" >
+        orderNum = #{ordernum,jdbcType=INTEGER},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=DATE},
+      </if>
+    </set>
+    where healthyProjectDayArrangeId = #{healthyprojectdayarrangeid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.codet.pojo.Healthyprojectdayarrange" >
+    update HealthyProjectDayArrange
+    set healthyProjectId = #{healthyprojectid,jdbcType=INTEGER},
+      maxServerNum = #{maxservernum,jdbcType=INTEGER},
+      orderNum = #{ordernum,jdbcType=INTEGER},
+      time = #{time,jdbcType=DATE}
+    where healthyProjectDayArrangeId = #{healthyprojectdayarrangeid,jdbcType=INTEGER}
+  </update>
+</mapper>
