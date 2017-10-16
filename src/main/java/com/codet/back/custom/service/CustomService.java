@@ -17,5 +17,6 @@ public interface CustomService {
 	
 	//修改客户信息
 	public void updateCustom(Custom custom);
+
 	
 }

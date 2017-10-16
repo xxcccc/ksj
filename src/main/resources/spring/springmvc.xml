@@ -19,7 +19,8 @@
 	<context:component-scan 
 		base-package="
 			com.codet.back.user.controller,
-			com.codet.back.custom.controller
+			com.codet.back.custom.controller,
+			com.codet.fonts.custom.controller
 		">
 	</context:component-scan>
 	
