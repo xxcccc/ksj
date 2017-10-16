@@ -1,4 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -132,7 +135,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </span>
         <!--End 所在收货地区 End-->
         <span class="fr">
-        	<span class="fl">你好，请<a href="Login.html">登录</a>&nbsp; <a href="Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
+        <c:if test="${empty custom.customname }">
+        	<span class="fl">你好，请<a href="Login.jsp">登录</a>&nbsp; <a href="Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;|</span>
+        </c:if >
+        <c:if test="${not empty custom.customname }">
+        	<span class="fl">欢迎&nbsp;<span >${custom.customname }</span>&nbsp; |&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
+        </c:if >
         	<span class="ss">
             	<div class="ss_list">
                 	<a href="#">收藏夹</a>
@@ -174,12 +182,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </span>
             <span class="fl">|&nbsp;关注我们：</span>
             <span class="s_sh"><a href="#" class="sh1">新浪</a><a href="#" class="sh2">微信</a></span>
-            <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="images/s_tel.png" align="absmiddle" /></a></span>
+            <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="${pageContext.request.contextPath }/page/front/shop/images/s_tel.png" align="absmiddle" /></a></span>
         </span>
     </div>
 </div>
 <div class="top">
-    <div class="logo"><a href="Index.html"><img src="images/logo.png" /></a></div>
+    <div class="logo"><a href="Index.html"><img src="${pageContext.request.contextPath }/page/front/shop/images/logo.png" /></a></div>
     <div class="search">
     	<form>
         	<input type="text" value="" class="s_ipt" />
@@ -196,17 +204,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <!--Begin 购物车已登录 Begin-->
             <ul class="cars">
             	<li>
-                	<div class="img"><a href="#"><img src="images/car1.jpg" width="58" height="58" /></a></div>
+                	<div class="img"><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/car1.jpg" width="58" height="58" /></a></div>
                     <div class="name"><a href="#">法颂浪漫梦境50ML 香水女士持久清新淡香 送2ML小样3只</a></div>
                     <div class="price"><font color="#ff4e00">￥399</font> X1</div>
                 </li>
                 <li>
-                	<div class="img"><a href="#"><img src="images/car2.jpg" width="58" height="58" /></a></div>
+                	<div class="img"><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/car2.jpg" width="58" height="58" /></a></div>
                     <div class="name"><a href="#">香奈儿（Chanel）邂逅活力淡香水50ml</a></div>
                     <div class="price"><font color="#ff4e00">￥399</font> X1</div>
                 </li>
                 <li>
-                	<div class="img"><a href="#"><img src="images/car2.jpg" width="58" height="58" /></a></div>
+                	<div class="img"><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/car2.jpg" width="58" height="58" /></a></div>
                     <div class="name"><a href="#">香奈儿（Chanel）邂逅活力淡香水50ml</a></div>
                     <div class="price"><font color="#ff4e00">￥399</font> X1</div>
                 </li>
@@ -228,7 +236,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <ul>      
                     <li>
                     	<div class="fj">
-                        	<span class="n_img"><span></span><img src="images/nav1.png" /></span>
+                        	<span class="n_img"><span></span><img src="${pageContext.request.contextPath }/page/front/shop/images/nav1.png" /></span>
                             <span class="fl">进口食品、生鲜</span>
                         </div>
                         <div class="zj">
@@ -271,14 +279,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 </div>
                             </div>
                             <div class="zj_r">
-                                <a href="#"><img src="images/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="#"><img src="images/n_img2.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/n_img2.jpg" width="236" height="200" /></a>
                             </div>
                         </div>
                     </li>
                     <li>
                     	<div class="fj">
-                        	<span class="n_img"><span></span><img src="images/nav2.png" /></span>
+                        	<span class="n_img"><span></span><img src="${pageContext.request.contextPath }/page/front/shop/images/nav2.png" /></span>
                             <span class="fl">食品、饮料、酒</span>
                         </div>
                         <div class="zj" style="top:-40px;">
@@ -297,14 +305,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 </div>
                             </div>
                             <div class="zj_r">
-                                <a href="#"><img src="images/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="#"><img src="images/n_img2.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/n_img2.jpg" width="236" height="200" /></a>
                             </div>
                         </div>
                     </li>
                     <li>
                     	<div class="fj">
-                        	<span class="n_img"><span></span><img src="images/nav3.png" /></span>
+                        	<span class="n_img"><span></span><img src="${pageContext.request.contextPath }/page/front/shop/images/nav3.png" /></span>
                             <span class="fl">母婴、玩具、童装</span>
                         </div>
                         <div class="zj" style="top:-80px;">
@@ -317,14 +325,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 </div>
                             </div>
                             <div class="zj_r">
-                                <a href="#"><img src="images/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="#"><img src="images/n_img2.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/n_img2.jpg" width="236" height="200" /></a>
                             </div>
                         </div>
                     </li>
                     <li>
                     	<div class="fj">
-                        	<span class="n_img"><span></span><img src="images/nav4.png" /></span>
+                        	<span class="n_img"><span></span><img src="${pageContext.request.contextPath }/page/front/shop/images/nav4.png" /></span>
                             <span class="fl">家居、家庭清洁、纸品</span>
                         </div>
                         <div class="zj" style="top:-120px;">
@@ -337,14 +345,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 </div>
                             </div>
                             <div class="zj_r">
-                                <a href="#"><img src="images/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="#"><img src="images/n_img2.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/n_img2.jpg" width="236" height="200" /></a>
                             </div>
                         </div>
                     </li>
                     <li>
                     	<div class="fj">
-                        	<span class="n_img"><span></span><img src="images/nav5.png" /></span>
+                        	<span class="n_img"><span></span><img src="${pageContext.request.contextPath }/page/front/shop/images/nav5.png" /></span>
                             <span class="fl">美妆、个人护理、洗护</span>
                         </div>
                         <div class="zj" style="top:-160px;">
@@ -357,14 +365,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 </div>
                             </div>
                             <div class="zj_r">
-                                <a href="#"><img src="images/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="#"><img src="images/n_img2.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/n_img2.jpg" width="236" height="200" /></a>
                             </div>
                         </div>
                     </li>
                     <li>
                     	<div class="fj">
-                        	<span class="n_img"><span></span><img src="images/nav6.png" /></span>
+                        	<span class="n_img"><span></span><img src="${pageContext.request.contextPath }/page/front/shop/images/nav6.png" /></span>
                             <span class="fl">女装、内衣、中老年</span>
                         </div>
                         <div class="zj" style="top:-200px;">
@@ -377,14 +385,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 </div>
                             </div>
                             <div class="zj_r">
-                                <a href="#"><img src="images/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="#"><img src="images/n_img2.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/n_img2.jpg" width="236" height="200" /></a>
                             </div>
                         </div>
                     </li>
                     <li>
                     	<div class="fj">
-                        	<span class="n_img"><span></span><img src="images/nav7.png" /></span>
+                        	<span class="n_img"><span></span><img src="${pageContext.request.contextPath }/page/front/shop/images/nav7.png" /></span>
                             <span class="fl">鞋靴、箱包、腕表配饰</span>
                         </div>
                         <div class="zj" style="top:-240px;">
@@ -397,14 +405,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 </div>
                             </div>
                             <div class="zj_r">
-                                <a href="#"><img src="images/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="#"><img src="images/n_img2.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/n_img2.jpg" width="236" height="200" /></a>
                             </div>
                         </div>
                     </li>
                     <li>
                     	<div class="fj">
-                        	<span class="n_img"><span></span><img src="images/nav8.png" /></span>
+                        	<span class="n_img"><span></span><img src="${pageContext.request.contextPath }/page/front/shop/images/nav8.png" /></span>
                             <span class="fl">男装、运动</span>
                         </div>
                         <div class="zj" style="top:-280px;">
@@ -417,14 +425,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 </div>
                             </div>
                             <div class="zj_r">
-                                <a href="#"><img src="images/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="#"><img src="images/n_img2.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/n_img2.jpg" width="236" height="200" /></a>
                             </div>
                         </div>
                     </li>
                     <li>
                     	<div class="fj">
-                        	<span class="n_img"><span></span><img src="images/nav9.png" /></span>
+                        	<span class="n_img"><span></span><img src="${pageContext.request.contextPath }/page/front/shop/images/nav9.png" /></span>
                             <span class="fl">手机、小家电、电脑</span>
                         </div>
                         <div class="zj" style="top:-320px;">
@@ -437,14 +445,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 </div>
                             </div>
                             <div class="zj_r">
-                                <a href="#"><img src="images/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="#"><img src="images/n_img2.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/n_img2.jpg" width="236" height="200" /></a>
                             </div>
                         </div>
                     </li>                    
                     <li>
                     	<div class="fj">
-                        	<span class="n_img"><span></span><img src="images/nav10.png" /></span>
+                        	<span class="n_img"><span></span><img src="${pageContext.request.contextPath }/page/front/shop/images/nav10.png" /></span>
                             <span class="fl">礼品、充值</span>
                         </div>
                         <div class="zj" style="top:-360px;">
@@ -457,8 +465,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 </div>
                             </div>
                             <div class="zj_r">
-                                <a href="#"><img src="images/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="#"><img src="images/n_img2.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/n_img1.jpg" width="236" height="200" /></a>
+                                <a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/n_img2.jpg" width="236" height="200" /></a>
                             </div>
                         </div>
                     </li>                    	
@@ -486,9 +494,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<div class="banner">    	
             <div class="top_slide_wrap">
                 <ul class="slide_box bxslider">
-                    <li><img src="images/ban1.jpg" width="740" height="401" /></li>
-                    <li><img src="images/ban1.jpg" width="740" height="401" /></li> 
-                    <li><img src="images/ban1.jpg" width="740" height="401" /></li> 
+                    <li><img src="${pageContext.request.contextPath }/page/front/shop/images/ban1.jpg" width="740" height="401" /></li>
+                    <li><img src="${pageContext.request.contextPath }/page/front/shop/images/ban1.jpg" width="740" height="401" /></li> 
+                    <li><img src="${pageContext.request.contextPath }/page/front/shop/images/ban1.jpg" width="740" height="401" /></li> 
                 </ul>	
                 <div class="op_btns clearfix">
                     <a href="#" class="op_btn op_prev"><span></span></a>
@@ -549,7 +557,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <!--Begin 热门商品 Begin-->
     <div class="content mar_10">
     	<div class="h_l_img">
-        	<div class="img"><img src="images/l_img.jpg" width="188" height="188" /></div>
+        	<div class="img"><img src="${pageContext.request.contextPath }/page/front/shop/images/l_img.jpg" width="188" height="188" /></div>
             <div class="pri_bg">
                 <span class="price fl">￥53.00</span>
                 <span class="fr">16R</span>
@@ -563,9 +571,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <ul class="featureUL">
                                 <li class="featureBox">
                                     <div class="box">
-                                    	<div class="h_icon"><img src="images/hot.png" width="50" height="50" /></div>
+                                    	<div class="h_icon"><img src="${pageContext.request.contextPath }/page/front/shop/images/hot.png" width="50" height="50" /></div>
                                         <div class="imgbg">
-                                        	<a href="#"><img src="images/hot1.jpg" width="160" height="136" /></a>
+                                        	<a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/hot1.jpg" width="160" height="136" /></a>
                                         </div>                                        
                                         <div class="name">
                                         	<a href="#">
@@ -580,9 +588,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 </li>
                                 <li class="featureBox">
                                     <div class="box">
-                                        <div class="h_icon"><img src="images/hot.png" width="50" height="50" /></div>
+                                        <div class="h_icon"><img src="${pageContext.request.contextPath }/page/front/shop/images/hot.png" width="50" height="50" /></div>
                                         <div class="imgbg">
-                                        	<a href="#"><img src="images/hot2.jpg" width="160" height="136" /></a>
+                                        	<a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/hot2.jpg" width="160" height="136" /></a>
                                         </div>                                        
                                         <div class="name">
                                         	<a href="#">
@@ -597,9 +605,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 </li>
                                 <li class="featureBox">
                                     <div class="box">
-                                        <div class="h_icon"><img src="images/hot.png" width="50" height="50" /></div>
+                                        <div class="h_icon"><img src="${pageContext.request.contextPath }/page/front/shop/images/hot.png" width="50" height="50" /></div>
                                         <div class="imgbg">
-                                        	<a href="#"><img src="images/hot3.jpg" width="160" height="136" /></a>
+                                        	<a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/hot3.jpg" width="160" height="136" /></a>
                                         </div>                                        
                                         <div class="name">
                                         	<a href="#">
@@ -614,9 +622,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 </li>
                                 <li class="featureBox">
                                     <div class="box">
-                                        <div class="h_icon"><img src="images/hot.png" width="50" height="50" /></div>
+                                        <div class="h_icon"><img src="${pageContext.request.contextPath }/page/front/shop/images/hot.png" width="50" height="50" /></div>
                                         <div class="imgbg">
-                                        	<a href="#"><img src="images/hot4.jpg" width="160" height="136" /></a>
+                                        	<a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/hot4.jpg" width="160" height="136" /></a>
                                         </div>                                        
                                         <div class="name">
                                         	<a href="#">
@@ -647,9 +655,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<div class="i_sell">
             <div id="imgPlay">
                 <ul class="imgs" id="actor">
-                    <li><a href="#"><img src="images/tm_r.jpg" width="211" height="357" /></a></li>
-                    <li><a href="#"><img src="images/tm_r.jpg" width="211" height="357" /></a></li>
-                    <li><a href="#"><img src="images/tm_r.jpg" width="211" height="357" /></a></li>
+                    <li><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/tm_r.jpg" width="211" height="357" /></a></li>
+                    <li><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/tm_r.jpg" width="211" height="357" /></a></li>
+                    <li><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/tm_r.jpg" width="211" height="357" /></a></li>
                 </ul>
                 <div class="previ">上一张</div>
                 <div class="nexti">下一张</div>
@@ -657,7 +665,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         <div class="sell_right">
         	<div class="sell_1">
-            	<div class="s_img"><a href="#"><img src="images/tm_1.jpg" width="185" height="155" /></a></div>
+            	<div class="s_img"><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/tm_1.jpg" width="185" height="155" /></a></div>
             	<div class="s_price">￥<span>89</span></div>
                 <div class="s_name">
                 	<h2><a href="#">沙宣洗发水</a></h2>
@@ -665,7 +673,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </div>
             </div>
             <div class="sell_2">
-            	<div class="s_img"><a href="#"><img src="images/tm_2.jpg" width="185" height="155" /></a></div>
+            	<div class="s_img"><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/tm_2.jpg" width="185" height="155" /></a></div>
             	<div class="s_price">￥<span>289</span></div>
                 <div class="s_name">
                 	<h2><a href="#">德芙巧克力</a></h2>
@@ -673,7 +681,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </div>
             </div>
             <div class="sell_b1">
-            	<div class="sb_img"><a href="#"><img src="images/tm_b1.jpg" width="242" height="356" /></a></div>
+            	<div class="sb_img"><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/tm_b1.jpg" width="242" height="356" /></a></div>
             	<div class="s_price">￥<span>289</span></div>
                 <div class="s_name">
                 	<h2><a href="#">东北大米</a></h2>
@@ -681,7 +689,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </div>
             </div>
             <div class="sell_3">
-            	<div class="s_img"><a href="#"><img src="images/tm_3.jpg" width="185" height="155" /></a></div>
+            	<div class="s_img"><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/tm_3.jpg" width="185" height="155" /></a></div>
             	<div class="s_price">￥<span>289</span></div>
                 <div class="s_name">
                 	<h2><a href="#">迪奥香水</a></h2>
@@ -689,7 +697,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </div>
             </div>
             <div class="sell_4">
-            	<div class="s_img"><a href="#"><img src="images/tm_4.jpg" width="185" height="155" /></a></div>
+            	<div class="s_img"><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/tm_4.jpg" width="185" height="155" /></a></div>
             	<div class="s_price">￥<span>289</span></div>
                 <div class="s_name">
                 	<h2><a href="#">美妆</a></h2>
@@ -697,7 +705,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </div>
             </div>
             <div class="sell_b2">
-            	<div class="sb_img"><a href="#"><img src="images/tm_b2.jpg" width="242" height="356" /></a></div>
+            	<div class="sb_img"><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/tm_b2.jpg" width="242" height="356" /></a></div>
             	<div class="s_price">￥<span>289</span></div>
                 <div class="s_name">
                 	<h2><a href="#">美妆</a></h2>
@@ -708,7 +716,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     <!--End 限时特卖 End-->
     <div class="content mar_20">
-    	<img src="images/mban_1.jpg" width="1200" height="110" />
+    	<img src="${pageContext.request.contextPath }/page/front/shop/images/mban_1.jpg" width="1200" height="110" />
     </div>
 	
     <!--Begin 家居生活 Begin-->
@@ -722,9 +730,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         	<div class="home_ban">
             	<div id="imgPlay5">
                     <ul class="imgs" id="actor5">
-                        <li><a href="#"><img src="images/home_r.jpg" width="211" height="286" /></a></li>
-                        <li><a href="#"><img src="images/home_r.jpg" width="211" height="286" /></a></li>
-                        <li><a href="#"><img src="images/home_r.jpg" width="211" height="286" /></a></li>
+                        <li><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/home_r.jpg" width="211" height="286" /></a></li>
+                        <li><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/home_r.jpg" width="211" height="286" /></a></li>
+                        <li><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/home_r.jpg" width="211" height="286" /></a></li>
                     </ul>
                     <div class="prev_h">上一张</div>
                     <div class="next_h">下一张</div> 
@@ -743,49 +751,49 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="price">
                     	<font>￥<span>2160.00</span></font> &nbsp; 50R
                     </div>
-                    <div class="img"><a href="#"><img src="images/home_1.jpg" width="185" height="155" /></a></div>
+                    <div class="img"><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/home_1.jpg" width="185" height="155" /></a></div>
                 </li>
                 <li>
                 	<div class="name"><a href="#">品质蓝色沙发</a></div>
                     <div class="price">
                     	<font>￥<span>2160.00</span></font> &nbsp; 50R
                     </div>
-                    <div class="img"><a href="#"><img src="images/home_2.jpg" width="185" height="155" /></a></div>
+                    <div class="img"><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/home_2.jpg" width="185" height="155" /></a></div>
                 </li>
                 <li>
                 	<div class="name"><a href="#">品质蓝色沙发</a></div>
                     <div class="price">
                     	<font>￥<span>2160.00</span></font> &nbsp; 50R
                     </div>
-                    <div class="img"><a href="#"><img src="images/home_3.jpg" width="185" height="155" /></a></div>
+                    <div class="img"><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/home_3.jpg" width="185" height="155" /></a></div>
                 </li>
                 <li>
                 	<div class="name"><a href="#">品质蓝色沙发</a></div>
                     <div class="price">
                     	<font>￥<span>2160.00</span></font> &nbsp; 50R
                     </div>
-                    <div class="img"><a href="#"><img src="images/home_4.jpg" width="185" height="155" /></a></div>
+                    <div class="img"><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/home_4.jpg" width="185" height="155" /></a></div>
                 </li>
                 <li>
                 	<div class="name"><a href="#">品质蓝色沙发</a></div>
                     <div class="price">
                     	<font>￥<span>2160.00</span></font> &nbsp; 50R
                     </div>
-                    <div class="img"><a href="#"><img src="images/home_5.jpg" width="185" height="155" /></a></div>
+                    <div class="img"><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/home_5.jpg" width="185" height="155" /></a></div>
                 </li>
                 <li>
                 	<div class="name"><a href="#">品质蓝色沙发</a></div>
                     <div class="price">
                     	<font>￥<span>2160.00</span></font> &nbsp; 50R
                     </div>
-                    <div class="img"><a href="#"><img src="images/home_6.jpg" width="185" height="155" /></a></div>
+                    <div class="img"><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/home_6.jpg" width="185" height="155" /></a></div>
                 </li>
             </ul>
         </div>
         <div class="fresh_right">
         	<ul>
-            	<li><a href="#"><img src="images/home_b1.jpg" width="260" height="220" /></a></li>
-                <li><a href="#"><img src="images/home_b2.jpg" width="260" height="220" /></a></li>
+            	<li><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/home_b1.jpg" width="260" height="220" /></a></li>
+                <li><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/home_b2.jpg" width="260" height="220" /></a></li>
             </ul>
         </div>
     </div>    
@@ -801,9 +809,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         	<div class="tel_ban">
             	<div id="imgPlay6">
                     <ul class="imgs" id="actor6">
-                        <li><a href="#"><img src="images/tel_r.jpg" width="211" height="286" /></a></li>
-                        <li><a href="#"><img src="images/tel_r.jpg" width="211" height="286" /></a></li>
-                        <li><a href="#"><img src="images/tel_r.jpg" width="211" height="286" /></a></li>
+                        <li><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/tel_r.jpg" width="211" height="286" /></a></li>
+                        <li><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/tel_r.jpg" width="211" height="286" /></a></li>
+                        <li><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/tel_r.jpg" width="211" height="286" /></a></li>
                     </ul>
                     <div class="prev_t">上一张</div>
                     <div class="next_t">下一张</div> 
@@ -822,49 +830,49 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="price">
                     	<font>￥<span>2160.00</span></font> &nbsp; 25R
                     </div>
-                    <div class="img"><a href="#"><img src="images/tel_1.jpg" width="185" height="155" /></a></div>
+                    <div class="img"><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/tel_1.jpg" width="185" height="155" /></a></div>
                 </li>
                 <li>
                 	<div class="name"><a href="#">乐视高清电视</a></div>
                     <div class="price">
                     	<font>￥<span>2160.00</span></font> &nbsp; 25R
                     </div>
-                    <div class="img"><a href="#"><img src="images/tel_2.jpg" width="185" height="155" /></a></div>
+                    <div class="img"><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/tel_2.jpg" width="185" height="155" /></a></div>
                 </li>
                 <li>
                 	<div class="name"><a href="#">乐视高清电视</a></div>
                     <div class="price">
                     	<font>￥<span>2160.00</span></font> &nbsp; 25R
                     </div>
-                    <div class="img"><a href="#"><img src="images/tel_3.jpg" width="185" height="155" /></a></div>
+                    <div class="img"><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/tel_3.jpg" width="185" height="155" /></a></div>
                 </li>
                 <li>
                 	<div class="name"><a href="#">乐视高清电视</a></div>
                     <div class="price">
                     	<font>￥<span>2160.00</span></font> &nbsp; 25R
                     </div>
-                    <div class="img"><a href="#"><img src="images/tel_4.jpg" width="185" height="155" /></a></div>
+                    <div class="img"><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/tel_4.jpg" width="185" height="155" /></a></div>
                 </li>
                 <li>
                 	<div class="name"><a href="#">乐视高清电视</a></div>
                     <div class="price">
                     	<font>￥<span>2160.00</span></font> &nbsp; 25R
                     </div>
-                    <div class="img"><a href="#"><img src="images/tel_5.jpg" width="185" height="155" /></a></div>
+                    <div class="img"><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/tel_5.jpg" width="185" height="155" /></a></div>
                 </li>
                 <li>
                 	<div class="name"><a href="#">乐视高清电视</a></div>
                     <div class="price">
                     	<font>￥<span>2160.00</span></font> &nbsp; 25R
                     </div>
-                    <div class="img"><a href="#"><img src="images/tel_6.jpg" width="185" height="155" /></a></div>
+                    <div class="img"><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/tel_6.jpg" width="185" height="155" /></a></div>
                 </li>
             </ul>
         </div>
         <div class="fresh_right">
         	<ul>
-            	<li><a href="#"><img src="images/tel_b1.jpg" width="260" height="220" /></a></li>
-                <li><a href="#"><img src="images/tel_b2.jpg" width="260" height="220" /></a></li>
+            	<li><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/tel_b1.jpg" width="260" height="220" /></a></li>
+                <li><a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/tel_b2.jpg" width="260" height="220" /></a></li>
             </ul>
         </div>
     </div>    
@@ -882,7 +890,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <li class="featureBox">
                                 <div class="box">
                                     <div class="imgbg">
-                                        <a href="#"><img src="images/hot1.jpg" width="160" height="136" /></a>
+                                        <a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/hot1.jpg" width="160" height="136" /></a>
                                     </div>                                        
                                     <div class="name">
                                         <a href="#">
@@ -898,7 +906,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <li class="featureBox">
                                 <div class="box">
                                     <div class="imgbg">
-                                        <a href="#"><img src="images/hot2.jpg" width="160" height="136" /></a>
+                                        <a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/hot2.jpg" width="160" height="136" /></a>
                                     </div>                                        
                                     <div class="name">
                                         <a href="#">
@@ -914,7 +922,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <li class="featureBox">
                                 <div class="box">
                                     <div class="imgbg">
-                                        <a href="#"><img src="images/hot3.jpg" width="160" height="136" /></a>
+                                        <a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/hot3.jpg" width="160" height="136" /></a>
                                     </div>                                        
                                     <div class="name">
                                         <a href="#">
@@ -930,7 +938,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <li class="featureBox">
                                 <div class="box">
                                     <div class="imgbg">
-                                        <a href="#"><img src="images/hot4.jpg" width="160" height="136" /></a>
+                                        <a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/hot4.jpg" width="160" height="136" /></a>
                                     </div>                                        
                                     <div class="name">
                                         <a href="#">
@@ -946,7 +954,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <li class="featureBox">
                                 <div class="box">
                                     <div class="imgbg">
-                                        <a href="#"><img src="images/hot4.jpg" width="160" height="136" /></a>
+                                        <a href="#"><img src="${pageContext.request.contextPath }/page/front/shop/images/hot4.jpg" width="160" height="136" /></a>
                                     </div>                                        
                                     <div class="name">
                                         <a href="#">
@@ -974,25 +982,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="b_btm">
             <table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr>
-                <td width="72"><img src="images/b1.png" width="62" height="62" /></td>
+                <td width="72"><img src="${pageContext.request.contextPath }/page/front/shop/images/b1.png" width="62" height="62" /></td>
                 <td><h2>正品保障</h2>正品行货  放心购买</td>
               </tr>
             </table>
 			<table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr>
-                <td width="72"><img src="images/b2.png" width="62" height="62" /></td>
+                <td width="72"><img src="${pageContext.request.contextPath }/page/front/shop/images/b2.png" width="62" height="62" /></td>
                 <td><h2>满38包邮</h2>满38包邮 免运费</td>
               </tr>
             </table>
             <table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr>
-                <td width="72"><img src="images/b3.png" width="62" height="62" /></td>
+                <td width="72"><img src="${pageContext.request.contextPath }/page/front/shop/images/b3.png" width="62" height="62" /></td>
                 <td><h2>天天低价</h2>天天低价 畅选无忧</td>
               </tr>
             </table>
             <table border="0" style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr>
-                <td width="72"><img src="images/b4.png" width="62" height="62" /></td>
+                <td width="72"><img src="${pageContext.request.contextPath }/page/front/shop/images/b4.png" width="62" height="62" /></td>
                 <td><h2>准时送达</h2>收货时间由你做主</td>
               </tr>
             </table>
@@ -1040,8 +1048,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </p>
         </div>
         <div class="b_er">
-            <div class="b_er_c"><img src="images/er.gif" width="118" height="118" /></div>
-            <img src="images/ss.png" />
+            <div class="b_er_c"><img src="${pageContext.request.contextPath }/page/front/shop/images/er.gif" width="118" height="118" /></div>
+            <img src="${pageContext.request.contextPath }/page/front/shop/images/ss.png" />
         </div>
     </div>    
     <!--End Footer End -->    
