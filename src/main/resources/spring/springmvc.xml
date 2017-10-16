@@ -20,7 +20,7 @@
 		base-package="
 			com.codet.back.user.controller,
 			com.codet.back.custom.controller,
-			com.codet.fonts.custom.controller
+			com.codet.front.custom.controller
 		">
 	</context:component-scan>
 	

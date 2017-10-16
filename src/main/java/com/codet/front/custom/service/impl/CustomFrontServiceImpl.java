@@ -1,18 +1,18 @@
-package com.codet.fonts.custom.service.impl;
+package com.codet.front.custom.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.codet.fonts.custom.mapper.CustomFrontMapper;
-import com.codet.fonts.custom.service.CustomFrontService;
+import com.codet.front.custom.mapper.CustomFrontMapper;
+import com.codet.front.custom.service.CustomFrontService;
 import com.codet.pojo.Custom;
 
 public class CustomFrontServiceImpl implements CustomFrontService {
 
 	@Autowired
-	private CustomFrontMapper customMapper;
+	private CustomFrontMapper customFrontMapper;
 
 	@Override
 	public Custom findCustomByCustomId(String customid) {
@@ -20,7 +20,7 @@ public class CustomFrontServiceImpl implements CustomFrontService {
 		Custom custom=new Custom();
 		
 		try {
-			custom=customMapper.findCustomByCustomid(customid);
+			custom=customFrontMapper.findCustomByCustomid(customid);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -34,7 +34,7 @@ public class CustomFrontServiceImpl implements CustomFrontService {
 		Custom custom2 =new Custom();
 		try {
 			 
-			 custom2 =customMapper.findCustomByName(custom.getCustomname());
+			 custom2 =customFrontMapper.findCustomByName(custom.getCustomname());
 			 
 			
 		} catch (Exception e) {
@@ -52,7 +52,7 @@ public class CustomFrontServiceImpl implements CustomFrontService {
 	public Custom findCustomByName(String name) {
 		Custom custom = new Custom();
 		try {
-			custom = customMapper.findCustomByName(name);
+			custom = customFrontMapper.findCustomByName(name);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
