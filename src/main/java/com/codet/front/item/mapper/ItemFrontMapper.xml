@@ -22,7 +22,7 @@
 		select Item.itemId a,Item.name b,ItemLevel.itemLevelId c,ItemLevel.level d,ItemType.itemTypeId e,ItemType.type f
 		from Item,ItemLevel,ItemType
 		where Item.itemLevelId = ItemLevel.itemLevelId and Item.itemTypeId = ItemType.itemTypeId
-		limit #{_parameter.start},#{_parameter.pageSize}
+		limit 0,4
 	</select>
 
 </mapper>
