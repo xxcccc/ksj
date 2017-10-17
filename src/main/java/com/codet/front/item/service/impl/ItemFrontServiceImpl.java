@@ -29,11 +29,12 @@ public class ItemFrontServiceImpl implements ItemFrontService {
 
 	@Override
 	public List<ItemsQueryPojo> itemFindAll(int start, int pageSize) {
-		Map<String,Object> map = new  HashMap<>();
+		Map<String,Integer> map = new  HashMap<>();
 		map.put("start", start);
 		map.put("pageSize", pageSize);
 		List<ItemsQueryPojo> items= new ArrayList<>();
 		items= itemFrontMapper.itemFindAll(map);
+		System.out.println("==========>"+items.size());
 		return items;
 	}
 

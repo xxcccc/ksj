@@ -40,10 +40,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<c:forEach items="${itemList }" var="items">
 					<tr>
 						<td>
-							<input id="" class="raido" type="checkbox" name="customid"  />
+							<input id="" class="raido" type="checkbox" name="customid" value="${items.itemExtend.itemid }" />
 						</td>
 						<td>
-							<span>${items.name }</span>
+							<span>${items.itemExtend.name }</span>
 						</td>
 						<td>
 							<span>${items.itemtype.type }</span>
@@ -52,8 +52,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td>
 							<span>${items.itemlevel.level }</span>
 						</td>
-						
-						
 					</tr>
 				</c:forEach>
 

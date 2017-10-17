@@ -29,13 +29,13 @@ public class CommonConstant {
 	/**
 	 * 用于商品列表显示的
 	 */
-	public static final String ITEM_LIST="itemList";
+	public static final String ITEM_LIST ="itemList";
 	
 	//登陆错误信息反馈
-		/**
-		 * 用于登陆错误信息反馈
-		 */
-		public static final String LOGIN_MESSAGE="loginMessage";
+	/**
+	 * 用于登陆错误信息反馈
+	 */
+	public static final String LOGIN_MESSAGE="loginMessage";
 	//客户详情
 	/**
 	 * 用于显示客户信息

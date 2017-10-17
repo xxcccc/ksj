@@ -295,3 +295,12 @@ h2{font-weight:normal;}
 .seachform li label{padding-right:10px; float:left; line-height:32px;}
 .scinput{width:150px; height:32px; line-height:32px; border-top:solid 1px #a7b5bc; border-left:solid 1px #a7b5bc; border-right:solid 1px #ced9df; border-bottom:solid 1px #ced9df; background:url(../images/inputbg.gif) repeat-x; text-indent:10px;}
 .scbtn{width:85px;height:35px; background:url(../images/btnbg.png) no-repeat center; font-size:14px;font-weight:bold;color:#fff; cursor:pointer;border-radius:3px; behavior:url(js/pie.htc);}
+
+/*healtRecords健康管理*/
+.imagetable {font-family: verdana, arial, sans-serif;margin: auto;border: 1;}
+.imagetable th {background: #b5cfd2;border: 2px solid;padding: 7px;border-color: #999999;text-align: center;font-size: 15px;width: 80px;}
+.imagetable td {border: 1px solid;border-width: 2px;padding: 5px;border-color: #999999;width: 80px;}
+.imagetable td input {border: none;width: 100%;}
+.healthtitle {margin-top: 20px;margin-bottom: 15px;font-size: 30px;}
+.button{font-size: 20px;font-weight: bold;}
+.div1{margin-top:50px;margin-bottom: 150px;}

@@ -21,10 +21,10 @@
 
 	<!-- front -->
 	<bean id="customFrontServiceImpl" class="com.codet.front.custom.service.impl.CustomFrontServiceImpl"></bean>
-
 	<bean id="itemFrontServiceImpl" class="com.codet.front.item.service.impl.ItemFrontServiceImpl"></bean>
 	<bean id="courseServiceImpl" class="com.codet.back.course.service.impl.CourseServiceImpl"></bean>
 
 	<bean id="HealtrecordsServiceImpl" class="com.codet.back.healtrecords.service.impl.HealtrecordsServiceImpl"></bean>
+	<bean id="healtrecordsServiceImpl" class="com.codet.back.healtrecords.service.impl.HealtrecordsServiceImpl"></bean>
 	
 </beans>

@@ -33,7 +33,7 @@ public interface ItemFrontMapper {
 
     int updateByPrimaryKey(Item record);
     
-    List<ItemsQueryPojo> itemFindAll(Map<String,Object> map);
+    List<ItemsQueryPojo> itemFindAll(Map<String, Integer> map);
     
     
     

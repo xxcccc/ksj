@@ -21,6 +21,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 <script type="text/javascript" src="js/Region.js"></script>
 </head>
+
 <body>
 	<div class="place">
 		<span>位置：</span>
@@ -32,18 +33,17 @@
 				<a href="#">客户健康信息管理</a>
 			</li>
 			<li>
-				<a href="#">客户健康信息添加</a>
+				<a href="#">客户健康信息详情</a>
 			</li>
 		</ul>
 	</div>
 
-	<!-- 添加客户健康档案详细信息 -->
 	<div class="div1">
 		<form id="formList" name="reg_testdate"
-			action="${pageContext.request.contextPath }/back/healtrecords/InsertHealtrecordsExtend.action"
+			action="${pageContext.request.contextPath }/back/healtrecords/*.action"
 			method="post" enctype="multipart/form-data">
 			<table class="imagetable">
-				<caption class="healthtitle">客户健康档案</caption>
+				<caption class="healthtitle">客户健康档案详情</caption>
 				<tr>
 					<th>姓名</th>
 					<td><input name="" type="text"></td>
@@ -181,9 +181,6 @@
 					<td colspan="4"><input name="" type="text"></td>
 				</tr>
 			</table>
-			<center class="button">
-				<input class="button" type="submit" value="提交" onclick="sex()">
-			</center>
 		</form>
 	</div>
 	<div></div>
