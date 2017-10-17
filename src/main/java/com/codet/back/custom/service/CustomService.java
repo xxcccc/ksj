@@ -20,4 +20,6 @@ public interface CustomService {
 	//删除客户信息
 	public void deleteCustomByCustomid(String customid);
 	
+	//通过ID查看客户详情
+	public Custom selectCustom(String customid);
 }

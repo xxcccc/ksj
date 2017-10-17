@@ -31,4 +31,9 @@ public class CommonConstant {
 	 */
 	public static final String ITEM_LIST="itemList";
 	
+	//客户详情
+	/**
+	 * 用于显示客户信息
+	 */
+	public static final String COUSTOM_DETAILS="selectCustom";
 }

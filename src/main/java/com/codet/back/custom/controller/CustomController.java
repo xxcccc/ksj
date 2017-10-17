@@ -39,8 +39,9 @@ public class CustomController {
 		if(searchType!=null&&searchType.equals("id")){
 			Custom custom=customService.findCustomByCustomId(searchValue);
 			customList.add(custom);
-		} else{
+			} else{
 			customList=customService.findCustomByName("");
+			
 		} 
 		
 		model.addAttribute(CommonConstant.CUSTOM_LIST, customList);
@@ -68,7 +69,7 @@ public class CustomController {
 			//将新的图片名称上传到数据库中Custom表的pic属性
 			custom.setPic(newFileName);
 		}
-		custom.setCustomid(IdUtil.getUUID());//随机ID
+		//custom.setCustomid(IdUtil.getUUID());//随机ID
 		customService.insertCustom(custom);
 
 		return "page/back/custom_info/success";
@@ -94,10 +95,14 @@ public class CustomController {
 	//删除客户信息
 	@RequestMapping("deleteCustomByCustomid")
 	public String deleteCustomByCustomid(String customid)throws Exception{
-		
-		System.out.print("-------------------"+customid);
 		customService.deleteCustomByCustomid(customid);
-		
 		return "page/back/custom_info/success";
+	}
+	//查看客户详情
+	@RequestMapping("selectCustom")
+	public String  selectCustom(String customid,Model model)throws Exception{
+		Custom custom=customService.selectCustom(customid);
+		model.addAttribute(CommonConstant.COUSTOM_DETAILS,custom);
+		return "page/back/custom_info/custom_details";
 	}
 }

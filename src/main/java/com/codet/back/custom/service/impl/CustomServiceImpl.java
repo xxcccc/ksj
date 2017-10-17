@@ -1,7 +1,11 @@
 package com.codet.back.custom.service.impl;
 
 import java.util.ArrayList;
+
+
 import java.util.List;
+
+import javax.enterprise.inject.New;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -75,6 +79,18 @@ public class CustomServiceImpl implements CustomService {
 			e.printStackTrace();
 		}
 		
+	}
+
+	@Override
+	public Custom selectCustom(String customid) {
+		Custom custom=new Custom();
+		try {
+			custom=customMapper.selectCustom(customid);
+		} catch (Exception e) {
+		
+			e.printStackTrace();
+		}
+		return custom;
 	}
 
 	

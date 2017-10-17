@@ -53,9 +53,11 @@
 			</li>
 		</ul>
 	</div>
+	<form action="">
 	<center>
 		<h1>操作成功</h1>
 	</center>
+	</form>
 	<br>
 </body>
 </html>
