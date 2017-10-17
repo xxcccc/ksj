@@ -1,17 +1,24 @@
 package com.codet.back.custom.controller;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.codet.back.custom.service.CustomService;
 import com.codet.pojo.Custom;
 import com.codet.util.CommonConstant;
+import com.codet.util.IdUtil;
+
 
 @Controller
 @RequestMapping("/back/custom")
@@ -42,32 +49,54 @@ public class CustomController {
 	}
 	
 	@RequestMapping("insertCustom")
-	public String insertCustom(Custom custom) throws Exception {
+	public String insertCustom(Custom custom,MultipartFile custompic,HttpServletRequest request) throws Exception {
+		//MultipartFile custompic用来接收客户图片
+		if (custompic!=null) {
+			//保存图片
+			//String pic_path = request.getSession().getServletContext().getRealPath("/upload");
 
-		custom.setCustomid("0225");
-
+			String pic_path="F:\\develop\\upload\\temp\\";
+			String originalFilename=custompic.getOriginalFilename();//原始名称
+			//新的图片名称
+			String newFileName=UUID.randomUUID()+
+					originalFilename.substring(
+					originalFilename.lastIndexOf("."));
+			//新的图片
+			File newFile=new File(pic_path+newFileName);
+			//将内存中的数据写入磁盘
+			custompic.transferTo(newFile);
+			//将新的图片名称上传到数据库中Custom表的pic属性
+			custom.setPic(newFileName);
+		}
+		custom.setCustomid(IdUtil.getUUID());//随机ID
 		customService.insertCustom(custom);
 
-		return "page/user/custom_list";
+		return "page/back/custom_info/success";
 	}
 
 	// 商品修改信息修改页面显示
-	@RequestMapping("customUpdate")
-	public String custom_update(String customid,Model model) throws Exception {
-
-		
-		Custom customUpdate = customService.findCustomByCustomId(customid);
+	@RequestMapping("updateCustom")
+	public String updateCustom(String customId,Model model) throws Exception {
+		Custom customUpdate = customService.findCustomByCustomId(customId);
 		model.addAttribute(CommonConstant.CUSTOM_UPDATE, customUpdate);
-		
-		return "page/back/custom/custom_update";
+		return "page/back/custom_info/custom_update";
 	}
 
 	// 商品信息修改提交
-	@RequestMapping("custom_updateSubmit")
-	public ModelAndView custom_updateSubmit(Custom custom) throws Exception {
+	@RequestMapping("updateCustomSubmit")
+	public ModelAndView updateCustomSubmit(Custom custom) throws Exception {
+		
 		customService.updateCustom(custom);
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("success");
+		modelAndView.setViewName("page/back/custom_info/success");
 		return modelAndView;
+	}
+	//删除客户信息
+	@RequestMapping("deleteCustomByCustomid")
+	public String deleteCustomByCustomid(String customid)throws Exception{
+		System.out.print("-------------------"+customid);
+		customService.deleteCustomByCustomid(customid);
+		
+		return "page/back/custom_info/success";
 	}
 }

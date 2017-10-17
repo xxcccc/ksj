@@ -17,6 +17,7 @@ public interface CustomService {
 	
 	//修改客户信息
 	public void updateCustom(Custom custom);
-
+	//删除客户信息
+	public void deleteCustomByCustomid(String customid);
 	
 }
