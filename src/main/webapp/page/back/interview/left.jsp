@@ -62,7 +62,7 @@
 						target="rightFrame">访谈列表</a><i></i>
 				</li>
 				<li>
-					<cite></cite> <a href="${pageContext.request.contextPath }/page/back/custom/custom_insert.jsp"
+					<cite></cite> <a href="${pageContext.request.contextPath }/page/back/interview/interview_insert.jsp"
 						target="rightFrame">访谈添加</a><i></i>
 				</li>
 			</ul>

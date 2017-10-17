@@ -13,9 +13,13 @@
 		http://www.springframework.org/schema/tx 
 		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd ">
 
-
+	<!-- back -->
 	<bean id="userServiceImpl" class="com.codet.back.user.service.impl.UserServiceImpl"></bean>
 	<bean id="customServiceImpl" class="com.codet.back.custom.service.impl.CustomServiceImpl"></bean>
+	<bean id="interviewBackServiceImpl" class="com.codet.back.interview.service.impl.InterviewBackServiceImpl"/>
+
+
+	<!-- front -->
 	<bean id="customFrontServiceImpl" class="com.codet.front.custom.service.impl.CustomFrontServiceImpl"></bean>
 	<bean id="itemFrontServiceImpl" class="com.codet.front.item.service.imlp.ItemFrontServiceImpl"></bean>
 </beans>
