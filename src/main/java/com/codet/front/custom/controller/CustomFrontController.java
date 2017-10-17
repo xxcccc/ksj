@@ -31,7 +31,7 @@ public class CustomFrontController {
 		if(customFrontServiceService.login(custom)){
 			Custom custom2 = customFrontServiceService.findCustomByName(custom.getCustomname());
 			
-			model.addAttribute("custom", custom2);
+			model.addAttribute(CommonConstant.CUSTOM_CONTEXT, custom2);
 		}
 		
 		return "page/front/shop/index";
