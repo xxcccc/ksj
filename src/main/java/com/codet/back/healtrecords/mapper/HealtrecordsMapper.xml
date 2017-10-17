@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- <mapper namespace="com.codet.mapper.HealtrecordsMapper" > -->
+<mapper namespace="com.codet.back.healtrecords.mapper.HealtrecordsMapper" >
+  <resultMap id="BaseResultMap" type="com.codet.pojo.Healtrecords" >
+    <id column="healtRecordsId" property="healtrecordsid" jdbcType="INTEGER" />
+    <result column="healthConsciousnessId" property="healthconsciousnessid" jdbcType="INTEGER" />
+    <result column="ireatmentReviewId" property="ireatmentreviewid" jdbcType="INTEGER" />
+    <result column="customId" property="customid" jdbcType="VARCHAR" />
+    <result column="diagnosisTime" property="diagnosistime" jdbcType="DATE" />
+    <result column="familyHistory" property="familyhistory" jdbcType="VARCHAR" />
+    <result column="height" property="height" jdbcType="INTEGER" />
+    <result column="weight" property="weight" jdbcType="DOUBLE" />
+    <result column="job" property="job" jdbcType="VARCHAR" />
+  </resultMap>
+<!--   <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    healtRecordsId, healthConsciousnessId, ireatmentReviewId, customId, diagnosisTime, 
+    familyHistory, height, weight, job
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.codet.pojo.HealtrecordsExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from HealtRecords
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from HealtRecords
+    where healtRecordsId = #{healtrecordsid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from HealtRecords
+    where healtRecordsId = #{healtrecordsid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.codet.pojo.HealtrecordsExample" >
+    delete from HealtRecords
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.codet.pojo.Healtrecords" >
+    insert into HealtRecords (healtRecordsId, healthConsciousnessId, 
+      ireatmentReviewId, customId, diagnosisTime, 
+      familyHistory, height, weight, 
+      job)
+    values (#{healtrecordsid,jdbcType=INTEGER}, #{healthconsciousnessid,jdbcType=INTEGER}, 
+      #{ireatmentreviewid,jdbcType=INTEGER}, #{customid,jdbcType=VARCHAR}, #{diagnosistime,jdbcType=DATE}, 
+      #{familyhistory,jdbcType=VARCHAR}, #{height,jdbcType=INTEGER}, #{weight,jdbcType=DOUBLE}, 
+      #{job,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.codet.pojo.Healtrecords" >
+    insert into HealtRecords
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="healtrecordsid != null" >
+        healtRecordsId,
+      </if>
+      <if test="healthconsciousnessid != null" >
+        healthConsciousnessId,
+      </if>
+      <if test="ireatmentreviewid != null" >
+        ireatmentReviewId,
+      </if>
+      <if test="customid != null" >
+        customId,
+      </if>
+      <if test="diagnosistime != null" >
+        diagnosisTime,
+      </if>
+      <if test="familyhistory != null" >
+        familyHistory,
+      </if>
+      <if test="height != null" >
+        height,
+      </if>
+      <if test="weight != null" >
+        weight,
+      </if>
+      <if test="job != null" >
+        job,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="healtrecordsid != null" >
+        #{healtrecordsid,jdbcType=INTEGER},
+      </if>
+      <if test="healthconsciousnessid != null" >
+        #{healthconsciousnessid,jdbcType=INTEGER},
+      </if>
+      <if test="ireatmentreviewid != null" >
+        #{ireatmentreviewid,jdbcType=INTEGER},
+      </if>
+      <if test="customid != null" >
+        #{customid,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosistime != null" >
+        #{diagnosistime,jdbcType=DATE},
+      </if>
+      <if test="familyhistory != null" >
+        #{familyhistory,jdbcType=VARCHAR},
+      </if>
+      <if test="height != null" >
+        #{height,jdbcType=INTEGER},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=DOUBLE},
+      </if>
+      <if test="job != null" >
+        #{job,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.codet.pojo.HealtrecordsExample" resultType="java.lang.Integer" >
+    select count(*) from HealtRecords
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update HealtRecords
+    <set >
+      <if test="record.healtrecordsid != null" >
+        healtRecordsId = #{record.healtrecordsid,jdbcType=INTEGER},
+      </if>
+      <if test="record.healthconsciousnessid != null" >
+        healthConsciousnessId = #{record.healthconsciousnessid,jdbcType=INTEGER},
+      </if>
+      <if test="record.ireatmentreviewid != null" >
+        ireatmentReviewId = #{record.ireatmentreviewid,jdbcType=INTEGER},
+      </if>
+      <if test="record.customid != null" >
+        customId = #{record.customid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.diagnosistime != null" >
+        diagnosisTime = #{record.diagnosistime,jdbcType=DATE},
+      </if>
+      <if test="record.familyhistory != null" >
+        familyHistory = #{record.familyhistory,jdbcType=VARCHAR},
+      </if>
+      <if test="record.height != null" >
+        height = #{record.height,jdbcType=INTEGER},
+      </if>
+      <if test="record.weight != null" >
+        weight = #{record.weight,jdbcType=DOUBLE},
+      </if>
+      <if test="record.job != null" >
+        job = #{record.job,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update HealtRecords
+    set healtRecordsId = #{record.healtrecordsid,jdbcType=INTEGER},
+      healthConsciousnessId = #{record.healthconsciousnessid,jdbcType=INTEGER},
+      ireatmentReviewId = #{record.ireatmentreviewid,jdbcType=INTEGER},
+      customId = #{record.customid,jdbcType=VARCHAR},
+      diagnosisTime = #{record.diagnosistime,jdbcType=DATE},
+      familyHistory = #{record.familyhistory,jdbcType=VARCHAR},
+      height = #{record.height,jdbcType=INTEGER},
+      weight = #{record.weight,jdbcType=DOUBLE},
+      job = #{record.job,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.codet.pojo.Healtrecords" >
+    update HealtRecords
+    <set >
+      <if test="healthconsciousnessid != null" >
+        healthConsciousnessId = #{healthconsciousnessid,jdbcType=INTEGER},
+      </if>
+      <if test="ireatmentreviewid != null" >
+        ireatmentReviewId = #{ireatmentreviewid,jdbcType=INTEGER},
+      </if>
+      <if test="customid != null" >
+        customId = #{customid,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosistime != null" >
+        diagnosisTime = #{diagnosistime,jdbcType=DATE},
+      </if>
+      <if test="familyhistory != null" >
+        familyHistory = #{familyhistory,jdbcType=VARCHAR},
+      </if>
+      <if test="height != null" >
+        height = #{height,jdbcType=INTEGER},
+      </if>
+      <if test="weight != null" >
+        weight = #{weight,jdbcType=DOUBLE},
+      </if>
+      <if test="job != null" >
+        job = #{job,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where healtRecordsId = #{healtrecordsid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.codet.pojo.Healtrecords" >
+    update HealtRecords
+    set healthConsciousnessId = #{healthconsciousnessid,jdbcType=INTEGER},
+      ireatmentReviewId = #{ireatmentreviewid,jdbcType=INTEGER},
+      customId = #{customid,jdbcType=VARCHAR},
+      diagnosisTime = #{diagnosistime,jdbcType=DATE},
+      familyHistory = #{familyhistory,jdbcType=VARCHAR},
+      height = #{height,jdbcType=INTEGER},
+      weight = #{weight,jdbcType=DOUBLE},
+      job = #{job,jdbcType=VARCHAR}
+    where healtRecordsId = #{healtrecordsid,jdbcType=INTEGER}
+  </update> -->
+
+
+<insert id="InsertHealtrecordsExtend" parameterType="com.codet.pojo.HealtrecordsExtend" >
+    insert into HealtRecords (healtRecordsId, healthConsciousnessId, 
+      ireatmentReviewId, customId, diagnosisTime, 
+      familyHistory, height, weight, 
+      job)
+    values (#{healtrecordsid,jdbcType=INTEGER}, #{healthconsciousnessid,jdbcType=INTEGER}, 
+      #{ireatmentreviewid,jdbcType=INTEGER}, #{customid,jdbcType=VARCHAR}, #{diagnosistime,jdbcType=DATE}, 
+      #{familyhistory,jdbcType=VARCHAR}, #{height,jdbcType=INTEGER}, #{weight,jdbcType=DOUBLE}, 
+      #{job,jdbcType=VARCHAR})
+  </insert>
+
+
+</mapper>
