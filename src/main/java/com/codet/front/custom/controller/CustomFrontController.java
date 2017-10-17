@@ -32,9 +32,15 @@ public class CustomFrontController {
 			Custom custom2 = customFrontServiceService.findCustomByName(custom.getCustomname());
 			
 			model.addAttribute(CommonConstant.CUSTOM_CONTEXT, custom2);
+			return "page/front/shop/index";
+		}else{
+			String message ="用户名或者密码错误";
+			model.addAttribute(CommonConstant.LOGIN_MESSAGE,message);
+			//return null;
+			return "redirect:../../page/front/shop/Login.jsp";
 		}
 		
-		return "page/front/shop/index";
+		
 	}
 	
 	
