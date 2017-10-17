@@ -16,10 +16,19 @@ public class CommonConstant {
 	 */
 	public static final String CUSTOM_UPDATE="customUpdate";
 	
+	
+	
 	//用户
 	/**
 	 * 用户登录存入session中的
 	 */
 	public static final String USER_CONTEXT="user";
+	
+	
+	//商品
+	/**
+	 * 用于商品列表显示的
+	 */
+	public static final String ITEM_LIST="itemList";
 	
 }
