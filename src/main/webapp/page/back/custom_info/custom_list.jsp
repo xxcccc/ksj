@@ -167,9 +167,9 @@
 							<a
 								href="${pageContext.request.contextPath }/back/user/custom_info.action?customid=${custom.customid }"
 								class="tablelink">查看详情</a> <a
-								href="${pageContext.request.contextPath }/back/custom/custom_update.action?customid=${custom.customid }"
+								href="${pageContext.request.contextPath }/back/custom/updateCustom.action?customId=${custom.customid }"
 								class="tablelink">修改</a> <a
-								href="${pageContext.request.contextPath }/back/user/custom_delete.action?customid=${custom.customid }"
+								href="${pageContext.request.contextPath }/back/custom/deleteCustomByCustomid.action?customId=${custom.customid }"
 								class="tablelink"> 删除</a>
 						</td>
 					</tr>

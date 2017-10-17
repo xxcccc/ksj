@@ -1,11 +1,45 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.codet.back.custom.mapper.CustomMapper">
-	<select id="findCustomByCustomid" parameterType="java.lang.String" resultType="com.codet.pojo.Custom">
-		select * from Custom where customId = ${customid}%
-	</select>
+
+<delete id="deleteCustomByCustomid" parameterType="java.lang.String" >
+    delete from Custom
+    where customId = #{customid,jdbcType=VARCHAR}
+</delete>
+<insert id="insertCustom" parameterType="com.codet.pojo.Custom" >
+    insert into Custom (customId, levelId, cityId, 
+      relativesId, customname, name, 
+      phone, sex, birthday, 
+      address, pic, wechat, 
+      integral, password)
+    values (#{customid,jdbcType=VARCHAR}, #{levelid,jdbcType=INTEGER}, #{cityid,jdbcType=INTEGER}, 
+      #{relativesid,jdbcType=INTEGER}, #{customname,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{birthday,jdbcType=DATE}, 
+      #{address,jdbcType=VARCHAR}, #{pic,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, 
+      #{integral,jdbcType=INTEGER}, #{password,jdbcType=VARCHAR})
+</insert>
+<update id="updateCustom" parameterType="com.codet.pojo.Custom" >
+    update Custom
+    set levelId = #{levelid,jdbcType=INTEGER},
+      cityId = #{cityid,jdbcType=INTEGER},
+      relativesId = #{relativesid,jdbcType=INTEGER},
+      customname = #{customname,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=DATE},
+      address = #{address,jdbcType=VARCHAR},
+      pic = #{pic,jdbcType=VARCHAR},
+      wechat = #{wechat,jdbcType=VARCHAR},
+      integral = #{integral,jdbcType=INTEGER},
+      password = #{password,jdbcType=VARCHAR}
+    where customId = #{customid,jdbcType=VARCHAR}
+</update>
+<select id="findCustomByCustomid" parameterType="string" resultType="com.codet.pojo.Custom">
+		select * from Custom where customId = #{_parameter}
+</select>
 	
-	<select id="findCustomByName" parameterType="string" resultType="com.codet.pojo.Custom">
+<select id="findCustomByName" parameterType="string" resultType="com.codet.pojo.Custom">
 		select * from Custom where name like '%${_parameter}%'
-	</select>
+</select>
 </mapper>

@@ -22,7 +22,6 @@ public class CustomServiceImpl implements CustomService {
 		try {
 			custom=customMapper.findCustomByCustomid(customid);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -66,4 +65,17 @@ public class CustomServiceImpl implements CustomService {
 		}
 		
 	}
+
+	@Override
+	public void deleteCustomByCustomid(String customid) {
+		try {
+			customMapper.deleteCustomByCustomid(customid);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	
 }

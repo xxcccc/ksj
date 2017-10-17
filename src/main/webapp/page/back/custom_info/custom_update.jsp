@@ -44,24 +44,37 @@
 		<div class="formtitle">
 			<span>修改客户信息</span>
 		</div>
-		<form action="${pageContext.request.contextPath }/custom/custom_updateSubmit.action?custom"
+		<form action="${pageContext.request.contextPath }/back/custom/updateCustomSubmit.action"
 			method="post" enctype="multipart/form-data">
 			<ul class="forminfo">
+				<li>
+					<input type="text" style="display:none;" name="customid" value="${customUpdate.customid}" />
+				</li>
 				<li>
 					<label>
 						客户姓名<b>*</b>
 					</label>
-					<input name="name" type="text" class="dfinput" value="${custom.name }" />
+					
+					<input name="name" type="text" class="dfinput" value="${customUpdate.name }" />
 				</li>
 				<li>
 					<label>
 						客户性别<b>*</b>
 					</label>
 					<h3>
-						男 &nbsp;
-						<input type="radio" value="0" name="sex" />
-						女 &nbsp;
-						<input type="radio" value="1" name="sex" />
+						<c:if test="${customUpdate.sex ==0 }">
+							男 &nbsp;
+							<input type="radio" value="0" name="sex" checked="checked"/>
+							女 &nbsp;
+							<input type="radio" value="1" name="sex" />
+						</c:if>
+						<c:if test="${customUpdate.sex ==1 }">
+							男 &nbsp;
+							<input type="radio" value="0" name="sex"/>
+							女 &nbsp;
+							<input type="radio" value="1" name="sex"  checked="checked"/>
+						</c:if>
+						
 					</h3>
 				</li>
 
@@ -69,32 +82,34 @@
 					<label>
 						出生日期<b>*</b>
 					</label>
-					<input name="birthday" type="text" class="dfinput" />
+					<input name="birthday" type="text" class="dfinput" value="${customUpdate.birthday}"/>
 				</li>
 				<li>
 					<label>
 						家庭住址<b>*</b>
 					</label>
-					<input name="" type="text" class="dfinput" />
+					<input name="" type="text" class="dfinput" value="${customUpdate.address}"/>
 				</li>
 				<li>
 					<label>
 						手机号<b>*</b>
 					</label>
-					<input name="phone" type="text" class="dfinput" value="${custom.phone}" />
+					<input name="phone" type="text" class="dfinput" value="${customUpdate.phone}" />
 				</li>
 				<li>
 					<label>
 						微 信<b></b>
 					</label>
-					<input name="" type="text" class="dfinput" value="${custom.wechat}" />
+					<input name="wechat" type="text" class="dfinput" value="${customUpdate.wechat}" />
 				</li>
 				<li>
 					<label>
-						邮 箱<b></b>
+						图片
 					</label>
-					<input name="" type="text" class="dfinput" />
-
+					<c:if test="${customUpdate.pic !=null}">
+						<img src="${pageContext.request.contextPath }F:\\develop\\upload\\temp\\${customUpdate.pic}" style="width:100px;height:100px;"/>
+					</c:if>
+					<input type="file"  name="custompic"  /> 
 				</li>
 				<li>
 					<label>&nbsp;</label>

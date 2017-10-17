@@ -48,7 +48,7 @@
 		</div>
 
 		<form id="formList" name="reg_testdate"
-			action="${pageContext.request.contextPath }/custom/customInsert.action" method="post"
+			action="${pageContext.request.contextPath }/back/custom/insertCustom.action" method="post"
 			enctype="multipart/form-data">
 
 			<ul class="forminfo">
@@ -132,24 +132,19 @@
 					<label>
 						照片<b>*</b>
 					</label>
-					<input name="" type="file" />
+					<input name=file type="file" />
 				</li>
 				<li>
 					<label>
 						微 信<b></b>
 					</label>
-					<input name="" type="text" class="dfinput" />
-
-				</li>
-				<li>
-					<label>
-						邮 箱<b></b>
-					</label>
-					<input name="" type="text" class="dfinput" />
+					<input name="wechat" type="text" class="dfinput" />
 
 				</li>
 			</ul>
-			<input type="submit" value="提交" onclick="sex()">
+			<center>
+				<input type="submit" value="提交" onclick="sex()">
+			</center>
 		</form>
 	</div>
 
