@@ -189,7 +189,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="top">
     <div class="logo"><a href="Index.html"><img src="${pageContext.request.contextPath }/page/front/shop/images/logo.png" /></a></div>
     <div class="search">
-    	<form>
+    	<form action="${pageContext.request.contextPath }/front/item/listItem.action" method="post" >
         	<input type="text" value="" class="s_ipt" />
             <input type="submit" value="搜索" class="s_btn" />
         </form>                      

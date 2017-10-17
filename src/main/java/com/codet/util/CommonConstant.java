@@ -36,4 +36,9 @@ public class CommonConstant {
 		 * 用于登陆错误信息反馈
 		 */
 		public static final String LOGIN_MESSAGE="loginMessage";
+	//客户详情
+	/**
+	 * 用于显示客户信息
+	 */
+	public static final String COUSTOM_DETAILS="selectCustom";
 }

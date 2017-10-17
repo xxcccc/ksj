@@ -62,7 +62,7 @@
 						target="rightFrame">客户健康信息列表</a><i></i>
 				</li>
 				<li>
-					<cite></cite> <a href=""
+					<cite></cite> <a href="${pageContext.request.contextPath }/page/back/healthRecords/healthRecords_insert.jsp"
 						target="rightFrame">客户健康信息添加</a><i></i>
 				</li>
 			</ul>

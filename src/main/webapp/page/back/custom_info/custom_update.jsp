@@ -48,18 +48,22 @@
 			method="post" enctype="multipart/form-data">
 			<ul class="forminfo">
 				<li>
-					<input type="text" style="display:none;" name="customid" value="${customUpdate.customid}" />
+					<label>
+						客户ID
+					</label>
+					<input type="text"  name="customid" value="${customUpdate.customid}" class="dfinput"/>
+					<i>客户身份证号</i>
 				</li>
 				<li>
 					<label>
-						客户姓名<b>*</b>
+						客户姓名
 					</label>
 					
 					<input name="name" type="text" class="dfinput" value="${customUpdate.name }" />
 				</li>
 				<li>
 					<label>
-						客户性别<b>*</b>
+						客户性别
 					</label>
 					<h3>
 						<c:if test="${customUpdate.sex ==0 }">
@@ -80,25 +84,25 @@
 
 				<li>
 					<label>
-						出生日期<b>*</b>
+						出生日期
 					</label>
 					<input name="birthday" type="text" class="dfinput" value="${customUpdate.birthday}"/>
 				</li>
 				<li>
 					<label>
-						家庭住址<b>*</b>
+						家庭住址
 					</label>
 					<input name="" type="text" class="dfinput" value="${customUpdate.address}"/>
 				</li>
 				<li>
 					<label>
-						手机号<b>*</b>
+						手机号
 					</label>
 					<input name="phone" type="text" class="dfinput" value="${customUpdate.phone}" />
 				</li>
 				<li>
 					<label>
-						微 信<b></b>
+						微 信
 					</label>
 					<input name="wechat" type="text" class="dfinput" value="${customUpdate.wechat}" />
 				</li>
@@ -114,6 +118,7 @@
 				<li>
 					<label>&nbsp;</label>
 					<input type="submit" class="btn" value="保存提交" />
+					<input type="button" value="返回" onclick="javascript:history.go(-1);" class="btn">
 				</li>
 			</ul>
 		</form>

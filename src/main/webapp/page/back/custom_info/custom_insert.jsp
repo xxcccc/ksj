@@ -52,6 +52,13 @@
 			enctype="multipart/form-data">
 
 			<ul class="forminfo">
+			<li>
+					<label>
+						客户ID<b>*</b>
+					</label>
+					<input name="customid" type="text" class="dfinput" />
+					<i>客户身份证号</i>
+				</li>
 				<li>
 					<label>
 						客户姓名<b>*</b>
@@ -88,7 +95,6 @@
 					<label>
 						出生日期<b>*</b>
 					</label>
-
 					<select name="YYYY" onchange="YYYYDD(this.value)">
 						<option value="">请选择 年</option>
 					</select>
@@ -143,7 +149,8 @@
 				</li>
 			</ul>
 			<center>
-				<input type="submit" value="提交" onclick="sex()">
+				<input type="submit" value="提交" onclick="sex()" class="btn" />
+				<input type="button" value="返回" onclick="javascript:history.back();" class="btn" />
 			</center>
 		</form>
 	</div>

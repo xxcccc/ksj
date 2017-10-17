@@ -20,7 +20,7 @@ public interface CustomMapper {
 	
 	//通过客户姓名模糊查找客户
 	public List<Custom> findCustomByName(String name) throws Exception;
-
-	
+	//通过ID查看客户详情
+	public Custom selectCustom(String customid)throws Exception;
 	
 }

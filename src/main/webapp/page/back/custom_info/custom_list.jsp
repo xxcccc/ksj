@@ -70,14 +70,14 @@
 
 			<ul class="toolbar">
 				<li>
-					<a href="${pageContext.request.contextPath }/page/back/custom/custom_insert.jsp"> 
+					<a href="${pageContext.request.contextPath }/page/back/custom_info/custom_insert.jsp"> 
 						<span>
 							<img src="images/t01.png" />
 						</span>添加
 					</a>
 				</li>
 				<li>
-					<a href="${pageContext.request.contextPath }/page/user/custom_update.jsp?id="> <span>
+					<a href="${pageContext.request.contextPath }/page/back/custom_info/custom_list.jsp"> <span>
 							<img src="images/t02.png" />
 						</span>修改
 					</a>
@@ -165,7 +165,7 @@
 						</td>
 						<td>
 							<a
-								href="${pageContext.request.contextPath }/back/user/custom_info.action?customid=${custom.customid }"
+								href="${pageContext.request.contextPath }/back/custom/selectCustom.action?customid=${custom.customid }"
 								class="tablelink">查看详情</a> <a
 								href="${pageContext.request.contextPath }/back/custom/updateCustom.action?customId=${custom.customid }"
 								class="tablelink">修改</a> <a
