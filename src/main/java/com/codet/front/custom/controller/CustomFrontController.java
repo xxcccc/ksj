@@ -20,7 +20,7 @@ public class CustomFrontController {
 	@Autowired
 	private CustomFrontService customFrontServiceService;
 	
-	//默认搜索的类型为id,模糊搜索内容为空
+	//榛樿鎼滅储鐨勭被鍨嬩负id,妯＄硦鎼滅储鍐呭涓虹┖
 	private String searchType="id";
 	private String searchValue="";
 	
@@ -34,7 +34,7 @@ public class CustomFrontController {
 			model.addAttribute(CommonConstant.CUSTOM_CONTEXT, custom2);
 			return "page/front/shop/index";
 		}else{
-			String message ="用户名或者密码错误";
+			String message ="鐢ㄦ埛鍚嶆垨鑰呭瘑鐮侀敊璇�";
 			model.addAttribute(CommonConstant.LOGIN_MESSAGE,message);
 			//return null;
 			return "redirect:../../page/front/shop/Login.jsp";

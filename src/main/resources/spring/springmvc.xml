@@ -21,7 +21,8 @@
 			com.codet.back.user.controller,
 			com.codet.back.custom.controller,
 			com.codet.front.custom.controller,
-			com.codet.front.item.controller
+			com.codet.front.item.controller,
+			com.codet.back.course.controller
 		">
 	</context:component-scan>
 	

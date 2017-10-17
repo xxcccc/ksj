@@ -87,6 +87,21 @@
 			</ul>
 		</dd>
 
+        
+		<dd>
+			<div class="title">
+				<span>
+					<img src="images/leftico02.png" />
+				</span>
+				课程管理
+			</div>
+			<ul class="menuson">
+				<li>
+					<cite></cite> <a href="${pageContext.request.contextPath }/page/back/course/coursePublish.jsp" target="rightFrame">课程发布</a><i></i>
+				</li>
+			</ul>		
+		</dd>
+		
 		<dd>
 			<div class="title">
 				<span>
