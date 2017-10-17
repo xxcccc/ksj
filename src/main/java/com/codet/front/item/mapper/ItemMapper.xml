@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.codet.front.item.mapper.ItemMapper" >
-  <resultMap id="BaseResultMap" type="com.codet.custom.pojo.Item" >
+  <resultMap id="BaseResultMap" type="com.codet.pojo.Item" >
     <id column="itemId" property="itemid" jdbcType="INTEGER" />
     <result column="itemLevelId" property="itemlevelid" jdbcType="INTEGER" />
     <result column="itemTypeId" property="itemtypeid" jdbcType="INTEGER" />
@@ -75,7 +75,7 @@
     itemId, itemLevelId, itemTypeId, name, detail, pic, price, benefitFlag, flagNum, 
     benefitPrice
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.codet.custom.pojo.ItemExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.codet.pojo.ItemExample" >
     select
     <if test="distinct" >
       distinct
@@ -99,13 +99,13 @@
     delete from Item
     where itemId = #{itemid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.codet.custom.pojo.ItemExample" >
+  <delete id="deleteByExample" parameterType="com.codet.pojo.ItemExample" >
     delete from Item
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.codet.custom.pojo.Item" >
+  <insert id="insert" parameterType="com.codet.pojo.Item" >
     insert into Item (itemId, itemLevelId, itemTypeId, 
       name, detail, pic, 
       price, benefitFlag, flagNum, 
@@ -115,7 +115,7 @@
       #{price,jdbcType=REAL}, #{benefitflag,jdbcType=VARCHAR}, #{flagnum,jdbcType=INTEGER}, 
       #{benefitprice,jdbcType=REAL})
   </insert>
-  <insert id="insertSelective" parameterType="com.codet.custom.pojo.Item" >
+  <insert id="insertSelective" parameterType="com.codet.pojo.Item" >
     insert into Item
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="itemid != null" >
@@ -182,7 +182,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.codet.custom.pojo.ItemExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.codet.pojo.ItemExample" resultType="java.lang.Integer" >
     select count(*) from Item
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -242,7 +242,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.codet.custom.pojo.Item" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.codet.pojo.Item" >
     update Item
     <set >
       <if test="itemlevelid != null" >
@@ -275,7 +275,7 @@
     </set>
     where itemId = #{itemid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.codet.custom.pojo.Item" >
+  <update id="updateByPrimaryKey" parameterType="com.codet.pojo.Item" >
     update Item
     set itemLevelId = #{itemlevelid,jdbcType=INTEGER},
       itemTypeId = #{itemtypeid,jdbcType=INTEGER},
