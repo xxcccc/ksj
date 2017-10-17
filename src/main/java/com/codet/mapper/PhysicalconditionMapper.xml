@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.codet.mapper.PhysicalconditionMapper" >
+  <resultMap id="BaseResultMap" type="com.codet.pojo.Physicalcondition" >
+    <id column="physicalConditionId" property="physicalconditionid" jdbcType="INTEGER" />
+    <result column="healtRecordsId" property="healtrecordsid" jdbcType="INTEGER" />
+    <result column="physicalConditionTypeId" property="physicalconditiontypeid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    physicalConditionId, healtRecordsId, physicalConditionTypeId
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.codet.pojo.PhysicalconditionExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from PhysicalCondition
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from PhysicalCondition
+    where physicalConditionId = #{physicalconditionid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from PhysicalCondition
+    where physicalConditionId = #{physicalconditionid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.codet.pojo.PhysicalconditionExample" >
+    delete from PhysicalCondition
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.codet.pojo.Physicalcondition" >
+    insert into PhysicalCondition (physicalConditionId, healtRecordsId, 
+      physicalConditionTypeId)
+    values (#{physicalconditionid,jdbcType=INTEGER}, #{healtrecordsid,jdbcType=INTEGER}, 
+      #{physicalconditiontypeid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.codet.pojo.Physicalcondition" >
+    insert into PhysicalCondition
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="physicalconditionid != null" >
+        physicalConditionId,
+      </if>
+      <if test="healtrecordsid != null" >
+        healtRecordsId,
+      </if>
+      <if test="physicalconditiontypeid != null" >
+        physicalConditionTypeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="physicalconditionid != null" >
+        #{physicalconditionid,jdbcType=INTEGER},
+      </if>
+      <if test="healtrecordsid != null" >
+        #{healtrecordsid,jdbcType=INTEGER},
+      </if>
+      <if test="physicalconditiontypeid != null" >
+        #{physicalconditiontypeid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.codet.pojo.PhysicalconditionExample" resultType="java.lang.Integer" >
+    select count(*) from PhysicalCondition
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update PhysicalCondition
+    <set >
+      <if test="record.physicalconditionid != null" >
+        physicalConditionId = #{record.physicalconditionid,jdbcType=INTEGER},
+      </if>
+      <if test="record.healtrecordsid != null" >
+        healtRecordsId = #{record.healtrecordsid,jdbcType=INTEGER},
+      </if>
+      <if test="record.physicalconditiontypeid != null" >
+        physicalConditionTypeId = #{record.physicalconditiontypeid,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update PhysicalCondition
+    set physicalConditionId = #{record.physicalconditionid,jdbcType=INTEGER},
+      healtRecordsId = #{record.healtrecordsid,jdbcType=INTEGER},
+      physicalConditionTypeId = #{record.physicalconditiontypeid,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.codet.pojo.Physicalcondition" >
+    update PhysicalCondition
+    <set >
+      <if test="healtrecordsid != null" >
+        healtRecordsId = #{healtrecordsid,jdbcType=INTEGER},
+      </if>
+      <if test="physicalconditiontypeid != null" >
+        physicalConditionTypeId = #{physicalconditiontypeid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where physicalConditionId = #{physicalconditionid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.codet.pojo.Physicalcondition" >
+    update PhysicalCondition
+    set healtRecordsId = #{healtrecordsid,jdbcType=INTEGER},
+      physicalConditionTypeId = #{physicalconditiontypeid,jdbcType=INTEGER}
+    where physicalConditionId = #{physicalconditionid,jdbcType=INTEGER}
+  </update>
+</mapper>

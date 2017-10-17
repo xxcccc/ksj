@@ -18,4 +18,6 @@
 	<bean id="customServiceImpl" class="com.codet.back.custom.service.impl.CustomServiceImpl"></bean>
 	<bean id="customFrontServiceImpl" class="com.codet.front.custom.service.impl.CustomFrontServiceImpl"></bean>
 	<bean id="itemFrontServiceImpl" class="com.codet.front.item.service.imlp.ItemFrontServiceImpl"></bean>
+	<bean id="HealtrecordsServiceImpl" class="com.codet.back.healtrecords.service.impl.HealtrecordsServiceImpl"></bean>
+	
 </beans>
