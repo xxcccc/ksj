@@ -1,11 +1,16 @@
 package com.codet.front.item.mapper;
 
+
 import com.codet.pojo.Item;
 import com.codet.pojo.ItemExample;
+import com.codet.pojo.ItemsQueryPojo;
+
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
-public interface ItemMapper {
+public interface ItemFrontMapper {
     int countByExample(ItemExample example);
 
     int deleteByExample(ItemExample example);
@@ -27,4 +32,9 @@ public interface ItemMapper {
     int updateByPrimaryKeySelective(Item record);
 
     int updateByPrimaryKey(Item record);
+    
+    List<ItemsQueryPojo> itemFindAll(Map<String,Object> map);
+    
+    
+    
 }

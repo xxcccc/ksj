@@ -47,6 +47,7 @@
 				
 				com.codet.front.custom.mapper,
 				com.codet.front.item.mapper,
+				com.codet.back.course.mapper
 				com.codet.back.healtrecords.mapper
 				"></property>
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
