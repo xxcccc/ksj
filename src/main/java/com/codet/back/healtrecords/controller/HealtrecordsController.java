@@ -10,13 +10,16 @@ import com.codet.pojo.HealtrecordsExtend;
 @Controller
 @RequestMapping("/back/healtrecords")
 public class HealtrecordsController {
-	
+
 	@Autowired
 	private HealtrecordsService healtrecordsService;
+
+	/* 添加客户健康信息 */
 	@RequestMapping("InsertHealtrecordsExtend")
-	public String InsertHealtrecordsExtend(HealtrecordsExtend healtrecordsExtend) throws Exception{
+	public String InsertHealtrecordsExtend(HealtrecordsExtend healtrecordsExtend)
+			throws Exception {
 		healtrecordsService.InsertHealtrecordsExtend(healtrecordsExtend);
-		return "成功";
+		return "/page/back/healthRecords/healthRecords_list.jsp";
 	}
 
 }

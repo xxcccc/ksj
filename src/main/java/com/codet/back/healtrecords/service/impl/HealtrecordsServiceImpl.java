@@ -10,6 +10,8 @@ public class HealtrecordsServiceImpl implements HealtrecordsService {
 
 	@Autowired
 	private HealtrecordsMapper healtrecordsMapper;
+
+	/* 添加客户健康信息 */
 	@Override
 	public void InsertHealtrecordsExtend(HealtrecordsExtend healtrecordsExtend)
 			throws Exception {
@@ -20,7 +22,7 @@ public class HealtrecordsServiceImpl implements HealtrecordsService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 
 }

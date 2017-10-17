@@ -70,33 +70,26 @@
 
 			<ul class="toolbar">
 				<li>
-					<a href=""> 
-						<span>
-							<img src="images/t01.png" />
+					<a href="">
+						<span> <img src="images/t01.png" />
 						</span>添加
 					</a>
 				</li>
 				<li>
-					<span>
-						<img src="images/t03.png" />
-					</span>
-					删除
+					<span> <img src="images/t03.png" />
+					</span> 删除
 				</li>
 			</ul>
-			
+
 			<ul class="toolbar1">
 				<li>
 					<form action="" method=post>
-						<span>
-							<select style="height: 23px;width: 50px;" name="searchType">
+						<span> <select style="height: 23px;width: 50px;" name="searchType">
 								<option value="id">ID</option>
 								<option value="name">姓名</option>
 							</select>
-						</span>
-						<span>
-							<input type="text" name="searchValue" value="" style="height:23px;" />
-						</span>
-						<span>
+						</span> <span> <input type="text" name="searchValue" value="" style="height:23px;" />
+						</span> <span>
 							<button type="submit" style="height: 23px;width: 40px;">搜索</button>
 						</span>
 					</form>
@@ -122,39 +115,16 @@
 			<tbody>
 				<c:forEach items="" var="custom">
 					<tr>
-						<td>
-							<input id="" class="raido" type="checkbox" name="" value="" />
-						</td>
-						<td>
-							<span></span>
-						</td>
-						<td>
-							<span></span>
-						</td>
-						<td>
-							<span></span>
-						</td>
-						<td>
-							<span></span>
-						</td>
-						<td>
-							<span></span>
-						</td>
-						<td>
-							<span></span>
-						</td>
-						<td>
-							<span></span>
-						</td>
-						<td>
-							<a
-								href=""
-								target="rightFrame">查看详情</a> <a
-								href=""
-								target="rightFrame">修改</a> <a
-								href=""
-								target="rightFrame"> 删除</a>
-						</td>
+						<td><input id="" class="raido" type="checkbox" name="" value="" /></td>
+						<td><span></span></td>
+						<td><span></span></td>
+						<td><span></span></td>
+						<td><span></span></td>
+						<td><span></span></td>
+						<td><span></span></td>
+						<td><span></span></td>
+						<td><a href="" target="rightFrame">查看详情</a> <a href="" target="rightFrame">修改</a> <a
+								href="" target="rightFrame"> 删除</a></td>
 					</tr>
 				</c:forEach>
 
@@ -167,7 +137,9 @@
 			</div>
 			<ul class="paginList">
 				<li class="paginItem">
-					<a href="javascript:;"><span class="pagepre"></span></a>
+					<a href="javascript:;">
+						<span class="pagepre"></span>
+					</a>
 				</li>
 				<li class="paginItem current">
 					<a href="javascript:;">1</a>
@@ -191,11 +163,13 @@
 					<a href="javascript:;">10</a>
 				</li>
 				<li class="paginItem">
-					<a href="javascript:;"><span class="pagenxt"></span></a>
+					<a href="javascript:;">
+						<span class="pagenxt"></span>
+					</a>
 				</li>
 			</ul>
 		</div>
-	<script type="text/javascript">
+		<script type="text/javascript">
 		$('.tablelist tbody tr:odd').addClass('odd');
 	</script>
 </body>

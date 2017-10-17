@@ -4,6 +4,8 @@ import com.codet.pojo.HealtrecordsExtend;
 
 public interface HealtrecordsService {
 
-	void InsertHealtrecordsExtend(HealtrecordsExtend healtrecordsExtend) throws Exception;
+	/* 添加客户健康信息 */
+	public void InsertHealtrecordsExtend(HealtrecordsExtend healtrecordsExtend)
+			throws Exception;
 
 }

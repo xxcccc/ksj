@@ -51,19 +51,20 @@
 
 		<dd>
 			<div class="title">
-				<span>
-					<img src="images/leftico01.png" />
-				</span>
-				客户健康信息管理
+				<span> <img src="images/leftico01.png" />
+				</span> 客户健康信息管理
 			</div>
 			<ul class="menuson">
 				<li>
-					<cite></cite> <a href=""
-						target="rightFrame">客户健康信息列表</a><i></i>
+					<cite></cite>
+					<a href="" target="rightFrame">客户健康信息列表</a>
+					<i></i>
 				</li>
 				<li>
-					<cite></cite> <a href="${pageContext.request.contextPath }/page/back/healthRecords/healthRecords_insert.jsp"
-						target="rightFrame">客户健康信息添加</a><i></i>
+					<cite></cite>
+					<a href="${pageContext.request.contextPath }/page/back/healthRecords/healthRecords_insert.jsp"
+						target="rightFrame">客户健康信息添加</a>
+					<i></i>
 				</li>
 			</ul>
 		</dd>
