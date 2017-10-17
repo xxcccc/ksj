@@ -62,7 +62,7 @@
 						target="rightFrame">客户列表</a><i></i>
 				</li>
 				<li>
-					<cite></cite> <a href="${pageContext.request.contextPath }/page/back/custom/custom_insert.jsp"
+					<cite></cite> <a href="${pageContext.request.contextPath }/page/back/custom_info/custom_insert.jsp"
 						target="rightFrame">客户添加</a><i></i>
 				</li>
 			</ul>

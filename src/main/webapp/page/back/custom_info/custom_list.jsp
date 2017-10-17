@@ -135,7 +135,7 @@
 				<c:forEach items="${customList }" var="custom">
 					<tr>
 						<td>
-							<input id="" class="raido" type="checkbox" name="" value="${custom.customid }" />
+							<input id="" class="raido" type="checkbox" name="customid"  />
 						</td>
 						<td>
 							<span>${custom.customid }</span>
@@ -169,7 +169,7 @@
 								class="tablelink">查看详情</a> <a
 								href="${pageContext.request.contextPath }/back/custom/updateCustom.action?customId=${custom.customid }"
 								class="tablelink">修改</a> <a
-								href="${pageContext.request.contextPath }/back/custom/deleteCustomByCustomid.action?customId=${custom.customid }"
+								href="${pageContext.request.contextPath }/back/custom/deleteCustomByCustomid.action?customid=${custom.customid }"
 								class="tablelink"> 删除</a>
 						</td>
 					</tr>

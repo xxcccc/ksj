@@ -94,6 +94,7 @@ public class CustomController {
 	//删除客户信息
 	@RequestMapping("deleteCustomByCustomid")
 	public String deleteCustomByCustomid(String customid)throws Exception{
+		
 		System.out.print("-------------------"+customid);
 		customService.deleteCustomByCustomid(customid);
 		
