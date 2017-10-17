@@ -44,7 +44,7 @@
 				<h2>客户信息管理</h2></a>
 		</li>
 		<li>
-			<a href="imgtable.html" target="rightFrame"><img src="images/icon02.png" title="模型管理" />
+			<a href="${pageContext.request.contextPath }/page/back/healthRecords/heathleft.jsp" target="leftFrame"><img src="images/icon02.png" title="模型管理" />
 				<h2>客户健康管理</h2></a>
 		</li>
 		<li>

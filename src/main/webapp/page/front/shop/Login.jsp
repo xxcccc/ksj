@@ -1,7 +1,17 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+	
+    
+    <title>商城登陆</title>
+    
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
     <!--[if IE 6]>
     <script src="js/iepng.js" type="text/javascript"></script>
@@ -29,10 +39,10 @@
     
 	<script type="text/javascript" src="js/lrscroll_1.js"></script>
     
-    
-<title>尤洪</title>
-</head>
-<body>  
+
+  </head>
+  
+  <body>  
 <!--Begin Header Begin-->
 <div class="soubg">
 	<div class="sou">
@@ -53,7 +63,7 @@
 	<div class="login">
     	<div class="log_img"><img src="images/l_img.png" width="611" height="425" /></div>
 		<div class="log_c">
-        	<form>
+        	<form action="${pageContext.request.contextPath }/front/custom/loginCustom.action" method="post">
             <table border="0" style="width:370px; font-size:14px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr height="50" valign="top">
               	<td width="55">&nbsp;</td>
@@ -64,11 +74,11 @@
               </tr>
               <tr height="70">
                 <td>用户名</td>
-                <td><input type="text" value="" class="l_user" /></td>
+                <td><input type="text" value="" class="l_user" name="customname" /></td>
               </tr>
               <tr height="70">
                 <td>密&nbsp; &nbsp; 码</td>
-                <td><input type="password" value="" class="l_pwd" /></td>
+                <td><input type="password" value="" class="l_pwd" name="password" /></td>
               </tr>
               <tr>
               	<td>&nbsp;</td>
@@ -81,7 +91,7 @@
               </tr>
               <tr height="60">
               	<td>&nbsp;</td>
-                <td><input type="submit" value="登录" class="log_btn" /></td>
+                <td><input type="submit" value="登录" class="" /></td>
               </tr>
             </table>
             </form>
@@ -99,9 +109,4 @@
 <!--End Footer End -->    
 
 </body>
-
-
-<!--[if IE 6]>
-<script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
-<![endif]-->
 </html>

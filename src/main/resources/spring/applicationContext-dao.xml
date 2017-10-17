@@ -41,7 +41,8 @@
 		<property name="basePackage"
 			value="
 				com.codet.back.user.mapper,
-				com.codet.back.custom.mapper
+				com.codet.back.custom.mapper,
+				com.codet.front.custom.mapper
 				"></property>
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
