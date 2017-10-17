@@ -23,6 +23,7 @@
 			com.codet.back.interview.controller,
 			com.codet.front.custom.controller,
 			com.codet.front.item.controller
+			com.codet.back.healtrecords.controller
 		">
 	</context:component-scan>
 	
