@@ -6,7 +6,7 @@ import com.codet.pojo.Custom;
 import com.codet.pojo.CustomExtend;
 import com.codet.pojo.CustomQueryPojo;
 
-public interface CustomService {
+public interface CustomBackService {
 
 	//通过客户id查找客户
 	public CustomExtend findCustomByCustomId(String customid) ;

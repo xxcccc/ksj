@@ -15,7 +15,7 @@
 
 	<!-- back -->
 	<bean id="userServiceImpl" class="com.codet.back.user.service.impl.UserServiceImpl"></bean>
-	<bean id="customServiceImpl" class="com.codet.back.custom.service.impl.CustomServiceImpl"></bean>
+	<bean id="customBackServiceImpl" class="com.codet.back.custom.service.impl.CustomBackServiceImpl"></bean>
 	<bean id="interviewBackServiceImpl" class="com.codet.back.interview.service.impl.InterviewBackServiceImpl"/>
 
 

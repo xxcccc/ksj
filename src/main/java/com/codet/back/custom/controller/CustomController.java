@@ -17,7 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.codet.back.custom.mapper.CustomMapper;
-import com.codet.back.custom.service.CustomService;
+import com.codet.back.custom.service.CustomBackService;
 import com.codet.pojo.Custom;
 import com.codet.pojo.CustomExtend;
 import com.codet.pojo.CustomQueryPojo;
@@ -30,7 +30,7 @@ import com.codet.util.IdUtil;
 public class CustomController {
 
 	@Autowired
-	private CustomService customService;
+	private CustomBackService customService;
 	
 	@Autowired
 	private CustomMapper customMapper;

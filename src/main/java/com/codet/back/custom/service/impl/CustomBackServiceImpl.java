@@ -10,12 +10,12 @@ import javax.enterprise.inject.New;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.codet.back.custom.mapper.CustomMapper;
-import com.codet.back.custom.service.CustomService;
+import com.codet.back.custom.service.CustomBackService;
 import com.codet.pojo.Custom;
 import com.codet.pojo.CustomExtend;
 import com.codet.pojo.CustomQueryPojo;
 
-public class CustomServiceImpl implements CustomService {
+public class CustomBackServiceImpl implements CustomBackService {
 
 	@Autowired
 	private CustomMapper customMapper;
