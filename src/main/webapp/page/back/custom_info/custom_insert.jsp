@@ -61,6 +61,12 @@
 				</li>
 				<li>
 					<label>
+						客户亲属(ID)<b>*</b>
+					</label>
+					<input name="relativesid" type="text" class="dfinput" />
+				</li>
+				<li>
+					<label>
 						客户姓名<b>*</b>
 					</label>
 					<input name="name" type="text" class="dfinput" />

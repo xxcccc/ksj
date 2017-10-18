@@ -73,10 +73,10 @@
 					<a href="${pageContext.request.contextPath }/page/back/custom_info/custom_insert.jsp"> 
 						<span>
 							<img src="images/t01.png" />
-						</span>添加
+						</span>添加客户
 					</a>
 				</li>
-				<li>
+			<!-- 	<li>
 					<a href="${pageContext.request.contextPath }/page/back/custom_info/custom_list.jsp"> <span>
 							<img src="images/t02.png" />
 						</span>修改
@@ -87,8 +87,8 @@
 						<img src="images/t03.png" />
 					</span>
 					删除
-				</li>
-				<!-- <li>
+				</li> 
+				<li>
 					<span>
 						<img src="images/t04.png" />
 					</span>
@@ -122,13 +122,14 @@
 				<tr>
 					<th><input name="" type="checkbox" value="" /></th>
 					<th>ID<i class="sort"><img src="images/px.gif" /></i></th>
+					<th>亲属ID</th>
 					<th>姓名</th>
 					<th>性别</th>
 					<th>手机号</th>
 					<th>出生日期</th>
 					<th>微信</th>
 					<th>积分</th>
-					<th>操作</th>
+					<th style="text-align:center;">操作</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -139,6 +140,9 @@
 						</td>
 						<td>
 							<span>${custom.customid }</span>
+						</td>
+						<td>
+							<span>${custom.relativesid }</span>
 						</td>
 						<td>
 							<span>${custom.name }</span>
@@ -163,14 +167,17 @@
 						<td>
 							<span>${custom.integral }</span>
 						</td>
-						<td>
-							<a
+						
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;
+						<a
+								href="${pageContext.request.contextPath }/page/back/custom_info/customRelatives_insert.jsp"
+								class="tablelink"><img src="images/t01.png" />添加亲属</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
 								href="${pageContext.request.contextPath }/back/custom/selectCustom.action?customid=${custom.customid }"
-								class="tablelink">查看详情</a> <a
+								class="tablelink"><img src="images/t04.png" />查看详情</a>&nbsp;&nbsp;&nbsp;&nbsp; <a
 								href="${pageContext.request.contextPath }/back/custom/updateCustom.action?customId=${custom.customid }"
-								class="tablelink">修改</a> <a
+								class="tablelink"><img src="images/t02.png" />修改</a>&nbsp;&nbsp;&nbsp;&nbsp; <a
 								href="${pageContext.request.contextPath }/back/custom/deleteCustomByCustomid.action?customid=${custom.customid }"
-								class="tablelink"> 删除</a>
+								class="tablelink"><img src="images/t03.png" />删除</a>
 						</td>
 					</tr>
 				</c:forEach>

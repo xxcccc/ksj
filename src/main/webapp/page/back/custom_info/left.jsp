@@ -65,10 +65,11 @@
 					<cite></cite> <a href="${pageContext.request.contextPath }/page/back/custom_info/custom_insert.jsp"
 						target="rightFrame">客户添加</a><i></i>
 				</li>
-				<li>
+			<!-- 	<li>
 					<cite></cite> <a href="${pageContext.request.contextPath }/page/back/custom_info/customRelatives_insert.jsp"
 						target="rightFrame">添加客户亲属</a><i></i>
 				</li>
+			-->
 			</ul>
 		</dd>
 
