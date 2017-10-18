@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.codet.back.custom.mapper.CustomMapper;
 import com.codet.back.custom.service.CustomService;
 import com.codet.pojo.Custom;
+import com.codet.pojo.CustomExtend;
+import com.codet.pojo.CustomQueryPojo;
 
 public class CustomServiceImpl implements CustomService {
 
@@ -19,23 +21,23 @@ public class CustomServiceImpl implements CustomService {
 	private CustomMapper customMapper;
 
 	@Override
-	public Custom findCustomByCustomId(String customid) {
+	public CustomExtend findCustomByCustomId(String customid) {
 		
-		Custom custom=new Custom();
+		CustomExtend customExtend=new CustomExtend();
 		
 		try {
-			custom=customMapper.findCustomByCustomid(customid);
+			customExtend=customMapper.findCustomByCustomid(customid);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return custom;
+		return customExtend;
 	}
 
 	@Override
-	public List<Custom> findCustomByName(String name) {
+	public List<CustomExtend> findCustomByName(String name) {
 		
-		List<Custom> customs=new ArrayList<>();
+		List<CustomExtend> customs=new ArrayList<>();
 		
 		try {
 			customs=customMapper.findCustomByName(name);
@@ -49,10 +51,10 @@ public class CustomServiceImpl implements CustomService {
 
 	
 	@Override
-	public void updateCustom(Custom custom) {
+	public void updateCustom(CustomExtend customExtend) {
 		
 		try {
-			customMapper.updateCustom(custom);
+			customMapper.updateCustom(customExtend);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -60,9 +62,9 @@ public class CustomServiceImpl implements CustomService {
 	}
 
 	@Override
-	public void insertCustom(Custom custom) {
+	public void insertCustom(CustomExtend customExtend) {
 		try {
-			customMapper.insertCustom(custom);
+			customMapper.insertCustom(customExtend);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -82,15 +84,15 @@ public class CustomServiceImpl implements CustomService {
 	}
 
 	@Override
-	public Custom selectCustom(String customid) {
-		Custom custom=new Custom();
+	public CustomExtend selectCustom(String customid) {
+		CustomExtend customExtend=new CustomExtend();
 		try {
-			custom=customMapper.selectCustom(customid);
+			customExtend=customMapper.selectCustom(customid);
 		} catch (Exception e) {
 		
 			e.printStackTrace();
 		}
-		return custom;
+		return customExtend;
 	}
 
 	
