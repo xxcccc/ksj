@@ -5,12 +5,6 @@ import java.util.Date;
 public class Custom {
     private String customid;
 
-    private Integer levelid;
-
-    private Integer cityid;
-
-    private Integer relativesid;
-
     private String customname;
 
     private String name;
@@ -27,119 +21,95 @@ public class Custom {
 
     private String wechat;
 
-    private Integer integral;
-
     private String password;
 
-    public String getCustomid() {
-        return customid;
-    }
+	public String getCustomid() {
+		return customid;
+	}
 
-    public void setCustomid(String customid) {
-        this.customid = customid == null ? null : customid.trim();
-    }
+	public void setCustomid(String customid) {
+		this.customid = customid;
+	}
 
-    public Integer getLevelid() {
-        return levelid;
-    }
+	public String getCustomname() {
+		return customname;
+	}
 
-    public void setLevelid(Integer levelid) {
-        this.levelid = levelid;
-    }
+	public void setCustomname(String customname) {
+		this.customname = customname;
+	}
 
-    public Integer getCityid() {
-        return cityid;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setCityid(Integer cityid) {
-        this.cityid = cityid;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public Integer getRelativesid() {
-        return relativesid;
-    }
+	public String getPhone() {
+		return phone;
+	}
 
-    public void setRelativesid(Integer relativesid) {
-        this.relativesid = relativesid;
-    }
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 
-    public String getCustomname() {
-        return customname;
-    }
+	public String getSex() {
+		return sex;
+	}
 
-    public void setCustomname(String customname) {
-        this.customname = customname == null ? null : customname.trim();
-    }
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public Date getBirthday() {
+		return birthday;
+	}
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
 
-    public String getPhone() {
-        return phone;
-    }
+	public String getAddress() {
+		return address;
+	}
 
-    public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
-    }
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
-    public String getSex() {
-        return sex;
-    }
+	public String getPic() {
+		return pic;
+	}
 
-    public void setSex(String sex) {
-        this.sex = sex == null ? null : sex.trim();
-    }
+	public void setPic(String pic) {
+		this.pic = pic;
+	}
 
-    public Date getBirthday() {
-        return birthday;
-    }
+	public String getWechat() {
+		return wechat;
+	}
 
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
+	public void setWechat(String wechat) {
+		this.wechat = wechat;
+	}
 
-    public String getAddress() {
-        return address;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public void setAddress(String address) {
-        this.address = address == null ? null : address.trim();
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public String getPic() {
-        return pic;
-    }
+	@Override
+	public String toString() {
+		return "Custom [customid=" + customid + ", customname=" + customname
+				+ ", name=" + name + ", phone=" + phone + ", sex=" + sex
+				+ ", birthday=" + birthday + ", address=" + address + ", pic="
+				+ pic + ", wechat=" + wechat + ", password=" + password + "]";
+	}
 
-    public void setPic(String pic) {
-        this.pic = pic == null ? null : pic.trim();
-    }
-
-    public String getWechat() {
-        return wechat;
-    }
-
-    public void setWechat(String wechat) {
-        this.wechat = wechat == null ? null : wechat.trim();
-    }
-
-    public Integer getIntegral() {
-        return integral;
-    }
-
-    public void setIntegral(Integer integral) {
-        this.integral = integral;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
-    }
+   
 }

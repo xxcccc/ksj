@@ -42,13 +42,9 @@
 			value="
 				com.codet.back.user.mapper,
 				com.codet.back.custom.mapper,
-				
-				com.codet.back.interview.mapper,
-				
 				com.codet.front.custom.mapper,
-				com.codet.front.item.mapper,
-				com.codet.back.course.mapper
-				com.codet.back.healtrecords.mapper
+				com.codet.front.message.mapper,
+				com.codet.front.answer.mapper,
 				"></property>
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>

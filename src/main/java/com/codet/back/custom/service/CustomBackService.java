@@ -2,6 +2,7 @@ package com.codet.back.custom.service;
 
 import java.util.List;
 
+import com.codet.pojo.City;
 import com.codet.pojo.Custom;
 import com.codet.pojo.CustomExtend;
 import com.codet.pojo.CustomQueryPojo;
@@ -24,4 +25,19 @@ public interface CustomBackService {
 	
 	//通过ID查看客户详情
 	public CustomExtend selectCustom(String customid);
+	
+	/**
+	 * 通过客户id模糊查找,分页
+	 * @param pageNo
+	 * @param pageSize
+	 * @param keyword
+	 * @return
+	 */
+	public List<CustomExtend> findPageCustomByCustomid(CustomQueryPojo customQueryPojo);
+
+	public int findCustomAllCount(CustomQueryPojo customQueryPojo);
+
+	List<CustomExtend> findPageCustomBySearchtype(
+			CustomQueryPojo customQueryPojo);
+	
 }

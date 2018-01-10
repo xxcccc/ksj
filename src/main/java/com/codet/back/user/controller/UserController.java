@@ -1,6 +1,4 @@
 package com.codet.back.user.controller;
-
-
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -32,11 +30,11 @@ public class UserController {
 		if(flag){
 			
 			session.setAttribute(CommonConstant.USER_CONTEXT, user);
-			
 			return "page/back/default_main";
 			
 		} 
-		return "admin_login.jsp";
+		System.out.println("cuo+++++++++++++++++++++++++++++++s");
+		return "admin_login";
 		
 	}
 	

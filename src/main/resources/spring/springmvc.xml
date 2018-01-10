@@ -20,12 +20,9 @@
 		base-package="
 			com.codet.back.user.controller,
 			com.codet.back.custom.controller,
-			com.codet.back.interview.controller,
 			com.codet.front.custom.controller,
-			com.codet.front.item.controller,
-			com.codet.back.course.controller
-			com.codet.front.item.controller
-			com.codet.back.healtrecords.controller
+			com.codet.front.message.controller,
+			com.codet.front.answer.controller
 		">
 	</context:component-scan>
 	

@@ -10,4 +10,8 @@
       #{phone1,jdbcType=VARCHAR}, #{phone2,jdbcType=VARCHAR}, #{info,jdbcType=VARCHAR}, 
       #{wechat,jdbcType=VARCHAR})
 </insert>
+
+<delete id="deleteRelatives" parameterType="java.lang.Integer" >
+    delete from  Relatives where Relatives.relativesId=#{relativesid}
+</delete>
 </mapper>

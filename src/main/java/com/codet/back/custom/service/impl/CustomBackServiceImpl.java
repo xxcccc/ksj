@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.codet.back.custom.mapper.CustomMapper;
 import com.codet.back.custom.service.CustomBackService;
+import com.codet.pojo.City;
 import com.codet.pojo.Custom;
 import com.codet.pojo.CustomExtend;
 import com.codet.pojo.CustomQueryPojo;
@@ -96,4 +97,44 @@ public class CustomBackServiceImpl implements CustomBackService {
 	}
 
 	
+	@Override
+	public List<CustomExtend> findPageCustomBySearchtype(CustomQueryPojo customQueryPojo){
+		
+		List<CustomExtend> customExtends=new ArrayList<>();
+		
+		try {
+			customExtends=customMapper.findPageCustomBySearchtype(customQueryPojo);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return customExtends;
+	}
+	@Override
+	public List<CustomExtend> findPageCustomByCustomid(CustomQueryPojo customQueryPojo) {
+		List<CustomExtend> customExtends = new ArrayList<>();
+
+		try {
+			customExtends = customMapper.findPageCustomByCustomid(customQueryPojo);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return customExtends;
+	}
+
+	@Override
+	public int findCustomAllCount(CustomQueryPojo customQueryPojo) {
+		int count=0;
+		try {
+			count= customMapper.findCustomAllCount(customQueryPojo);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return count;
+	}
+
 }

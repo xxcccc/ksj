@@ -40,5 +40,8 @@ public class CommonConstant {
 	/**
 	 * 用于显示客户信息
 	 */
-	public static final String COUSTOM_DETAILS="selectCustom";
+	public static final String COUSTOM_DETAILS="selectFrontCustom";
+	
+	public static final String Message_LIST="selectMessage";
+	public static final String CUSTOM_LISTC="selectCustomC";
 }

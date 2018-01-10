@@ -72,33 +72,12 @@
 			-->
 			</ul>
 		</dd>
-
 		<dd>
 			<div class="title">
 				<span>
 					<img src="images/leftico02.png" />
 				</span>
-				健康管理
-			</div>
-			<ul class="menuson">
-				<li>
-					<cite></cite> <a href="${pageContext.request.contextPath }/back/page/user/dianosis_list.jsp"
-						target="rightFrame">查看数据</a><i></i>
-				</li>
-				<li>
-					<cite></cite> <a href="${pageContext.request.contextPath }/back/page/user/custom_update.jsp"
-						target="rightFrame">修改数据</a><i></i>
-				</li>
-			</ul>
-		</dd>
-
-        
-		<dd>
-			<div class="title">
-				<span>
-					<img src="images/leftico02.png" />
-				</span>
-				课程管理
+				XX管理
 			</div>
 			<ul class="menuson">
 				<li>

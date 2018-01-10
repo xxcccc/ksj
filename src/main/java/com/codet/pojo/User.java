@@ -4,11 +4,7 @@ import java.util.Date;
 
 public class User {
     private Integer userid;
-
-    private Integer orgid;
-
-    private Integer cityid;
-
+    
     private String username;
 
     private String name;
@@ -23,113 +19,86 @@ public class User {
 
     private String wechat;
 
-    private String email;
-
-    private String qq;
-
     private String password;
 
-    public Integer getUserid() {
-        return userid;
-    }
+	public Integer getUserid() {
+		return userid;
+	}
 
-    public void setUserid(Integer userid) {
-        this.userid = userid;
-    }
+	public void setUserid(Integer userid) {
+		this.userid = userid;
+	}
 
-    public Integer getOrgid() {
-        return orgid;
-    }
+	public String getUsername() {
+		return username;
+	}
 
-    public void setOrgid(Integer orgid) {
-        this.orgid = orgid;
-    }
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-    public Integer getCityid() {
-        return cityid;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setCityid(Integer cityid) {
-        this.cityid = cityid;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public String getUsername() {
-        return username;
-    }
+	public String getSex() {
+		return sex;
+	}
 
-    public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
-    }
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public Date getBrithday() {
+		return brithday;
+	}
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
+	public void setBrithday(Date brithday) {
+		this.brithday = brithday;
+	}
 
-    public String getSex() {
-        return sex;
-    }
+	public String getAddress() {
+		return address;
+	}
 
-    public void setSex(String sex) {
-        this.sex = sex == null ? null : sex.trim();
-    }
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
-    public Date getBrithday() {
-        return brithday;
-    }
+	public String getPhone() {
+		return phone;
+	}
 
-    public void setBrithday(Date brithday) {
-        this.brithday = brithday;
-    }
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 
-    public String getAddress() {
-        return address;
-    }
+	public String getWechat() {
+		return wechat;
+	}
 
-    public void setAddress(String address) {
-        this.address = address == null ? null : address.trim();
-    }
+	public void setWechat(String wechat) {
+		this.wechat = wechat;
+	}
 
-    public String getPhone() {
-        return phone;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public String getWechat() {
-        return wechat;
-    }
-
-    public void setWechat(String wechat) {
-        this.wechat = wechat == null ? null : wechat.trim();
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email == null ? null : email.trim();
-    }
-
-    public String getQq() {
-        return qq;
-    }
-
-    public void setQq(String qq) {
-        this.qq = qq == null ? null : qq.trim();
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
-    }
+	@Override
+	public String toString() {
+		return "User [userid=" + userid + ", username=" + username + ", name="
+				+ name + ", sex=" + sex + ", brithday=" + brithday
+				+ ", address=" + address + ", phone=" + phone + ", wechat="
+				+ wechat + ", password=" + password + "]";
+	}
+    
 }

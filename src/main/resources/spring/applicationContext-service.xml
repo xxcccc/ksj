@@ -17,13 +17,9 @@
 	<bean id="userServiceImpl" class="com.codet.back.user.service.impl.UserServiceImpl"></bean>
 	<bean id="customBackServiceImpl" class="com.codet.back.custom.service.impl.CustomBackServiceImpl"></bean>
 	<bean id="relativesBackServiceImpl" class="com.codet.back.custom.service.impl.RelativesBackServiceImpl"></bean>
-	<bean id="interviewBackServiceImpl" class="com.codet.back.interview.service.impl.InterviewBackServiceImpl"/>
-
-
+	<bean id="messageFrontServiceImpl" class="com.codet.front.message.service.impl.MessageFrontServiceImpl"></bean>
+	<bean id="answerFrontServiceImpl" class="com.codet.front.answer.service.impl.AnswerFrontServiceImpl"></bean>
+	
 	<!-- front -->
 	<bean id="customFrontServiceImpl" class="com.codet.front.custom.service.impl.CustomFrontServiceImpl"></bean>
-	<bean id="itemFrontServiceImpl" class="com.codet.front.item.service.impl.ItemFrontServiceImpl"></bean>
-	<bean id="courseServiceImpl" class="com.codet.back.course.service.impl.CourseServiceImpl"></bean>
-	<bean id="healtrecordsServiceImpl" class="com.codet.back.healtrecords.service.impl.HealtrecordsServiceImpl"></bean>
-	
 </beans>

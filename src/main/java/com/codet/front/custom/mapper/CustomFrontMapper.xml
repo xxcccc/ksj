@@ -1,11 +1,75 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.codet.front.custom.mapper.CustomFrontMapper">
-	<select id="findCustomByCustomid" parameterType="java.lang.String" resultType="com.codet.pojo.Custom">
-		select * from Custom where customId = ${customid}%
+	<select id="findCustomByCustomid" parameterType="string" resultType="com.codet.pojo.CustomExtend">
+			select * from Custom where customId = #{_parameter}
 	</select>
 	
 	<select id="findCustomByName" parameterType="string" resultType="com.codet.pojo.Custom">
 		select * from Custom where customname =#{customname}
 	</select>
+	
+<insert id="registerFrontCustom" parameterType="com.codet.pojo.CustomQueryPojo" >
+    insert into Custom (customId,
+      customname,
+      phone, password)
+    values (#{customid,jdbcType=VARCHAR},  
+      #{customname,jdbcType=VARCHAR},  
+      #{phone,jdbcType=VARCHAR}, 
+       #{password,jdbcType=VARCHAR})
+</insert>
+<select id="selectFrontCustom" parameterType="string" resultType="com.codet.pojo.CustomExtend">
+			select * from Custom where customId = #{_parameter}
+</select>
+
+<!-- 查询客户表及留言表的ResultMap -->
+	<resultMap type="com.codet.pojo.CustomExtend" id="CustomMessageResultMap">
+		<!-- 映射客户信息 -->
+		<id column="customId" property="customid"/>
+		<result column="customname" property="customname"/>
+		<result column="name" property="name"/>
+		<result column="phone" property="phone"/>
+		<result column="sex" property="sex"/>
+		<result column="birthday" property="birthday"/>
+		<result column="address" property="address"/>
+		<result column="pic" property="pic"/>
+		<result column="wechat" property="wechat"/>
+		<result column="password" property="password"/>
+		<!-- 映射留言信息 -->
+		<collection property="listMessage" ofType="com.codet.pojo.Message">
+			<id column="MessageId" property="messageid"/>
+			<result column="message_customId" property="customid"/>
+			<result column="content" property="content"/>
+			<result column="messageTime" property="messageTime"/>
+		</collection>
+	</resultMap>
+	<select id="findCustomMessageResultMap" parameterType="string" resultMap="CustomMessageResultMap">
+	SELECT
+		Custom.*,
+		Message.customId message_customId,
+		Message.content,
+		Message.messageTime,
+		Message.messageId
+	FROM
+		Custom,
+		Message
+	WHERE
+		Custom.customId=#{customid} and  Custom.customId=Message.customId
+		order By messageId desc  
+	</select>
+	<!-- 修改 -->
+	<update id="updateCustom" parameterType="com.codet.pojo.CustomQueryPojo" >
+	    update Custom
+	    set  
+	      customname = #{customname,jdbcType=VARCHAR},
+	      name = #{name,jdbcType=VARCHAR},
+	      phone = #{phone,jdbcType=VARCHAR},
+	      sex = #{sex,jdbcType=VARCHAR},
+	      birthday = #{birthday,jdbcType=DATE},
+	      address = #{address,jdbcType=VARCHAR},
+	      pic = #{pic,jdbcType=VARCHAR},
+	      wechat = #{wechat,jdbcType=VARCHAR}
+	    where customId = #{customid,jdbcType=VARCHAR}
+	</update>
+	
 </mapper>

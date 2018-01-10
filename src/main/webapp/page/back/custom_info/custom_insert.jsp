@@ -12,7 +12,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>My JSP 'custom_insert.jsp' starting page</title>
+<title>用户添加</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -59,12 +59,7 @@
 					<input name="customid" type="text" class="dfinput" />
 					<i>客户身份证号</i>
 				</li>
-				<li>
-					<label>
-						客户亲属(ID)<b>*</b>
-					</label>
-					<input name="relativesid" type="text" class="dfinput" />
-				</li>
+				
 				<li>
 					<label>
 						客户姓名<b>*</b>
@@ -99,40 +94,10 @@
 				</li>
 				<li>
 					<label>
-						出生日期<b>*</b>
-					</label>
-					<select name="YYYY" onchange="YYYYDD(this.value)">
-						<option value="">请选择 年</option>
-					</select>
-					<select name="MM" onchange="MMDD(this.value)">
-						<option value="">选择 月</option>
-					</select>
-					<select name="DD">
-						<option value="">选择 日</option>
-					</select>
-				</li>
-
-
-
-
-				<li>
-					<label>
 						家庭住址<b>*</b>
 					</label>
-					省&nbsp;&nbsp;
-					<select id="sel_Province" style="width:80px" name="sel_Province">
-					</select>
-					市&nbsp;&nbsp;
-					<select id="sel_City" name="sel_City">
-					</select>
-					县/区&nbsp;&nbsp;
-					<select id="sel_County" name="sel_County">
-					</select>
-					<input type="text" name="" value="详细地址" style="border:1px solid black;"
-						onfocus="javascript:if(this.value=='详细地址')this.value='';" />
+					<input name="address" type="text" class="dfinput" />
 				</li>
-
-
 
 				<li>
 					<label>
@@ -174,97 +139,6 @@
 
 		};
 	</script>
-
-	<!--时间JavaScript -->
-	<script language="JavaScript">
-		function YYYYMMDDstart() {
-			MonHead = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];
-
-			//先给年下拉框赋内容   
-			var y = new Date().getFullYear();
-			for (var i = (y - 100); i < (y + 100); i++)
-				//以今年为准，前30年，后30年   
-				document.reg_testdate.YYYY.options.add(new Option(" " + i
-						+ " 年", i));
-
-			//赋月份的下拉框   
-			for (var i = 1; i < 13; i++)
-				document.reg_testdate.MM.options.add(new Option(" " + i + " 月",
-						i));
-
-			document.reg_testdate.YYYY.value = y;
-			document.reg_testdate.MM.value = new Date().getMonth() + 1;
-			var n = MonHead[new Date().getMonth()];
-			if (new Date().getMonth() == 1 && IsPinYear(YYYYvalue))
-				n++;
-			writeDay(n); //赋日期下拉框Author:meizz   
-			document.reg_testdate.DD.value = new Date().getDate();
-		}
-		if (document.attachEvent)
-			window.attachEvent("onload", YYYYMMDDstart);
-		else
-			window.addEventListener('load', YYYYMMDDstart, false);
-		function YYYYDD(str) //年发生变化时日期发生变化(主要是判断闰平年)   
-		{
-			var MMvalue = document.reg_testdate.MM.options[document.reg_testdate.MM.selectedIndex].value;
-			if (MMvalue == "") {
-				var e = document.reg_testdate.DD;
-				optionsClear(e);
-				return;
-			}
-			var n = MonHead[MMvalue - 1];
-			if (MMvalue == 2 && IsPinYear(str))
-				n++;
-			writeDay(n)
-		}
-		function MMDD(str) //月发生变化时日期联动   
-		{
-			var YYYYvalue = document.reg_testdate.YYYY.options[document.reg_testdate.YYYY.selectedIndex].value;
-			if (YYYYvalue == "") {
-				var e = document.reg_testdate.DD;
-				optionsClear(e);
-				return;
-			}
-			var n = MonHead[str - 1];
-			if (str == 2 && IsPinYear(YYYYvalue))
-				n++;
-			writeDay(n)
-		}
-		function writeDay(n) //据条件写日期的下拉框   
-		{
-			var e = document.reg_testdate.DD;
-			optionsClear(e);
-			for (var i = 1; i < (n + 1); i++)
-				e.options.add(new Option(" " + i + " 日", i));
-		}
-		function IsPinYear(year)//判断是否闰平年   
-		{
-			return (0 == year % 4 && (year % 100 != 0 || year % 400 == 0));
-		}
-		function optionsClear(e) {
-			e.options.length = 1;
-		}
-	//-->
-	</script>
-	<!--地域JavaScript -->
-	<script>
-		AreaSelector().init();
-
-		function getValue(id) {
-			var sel = document.getElementById(id);
-			if (sel && sel.options) {
-				alert(sel.options[sel.selectedIndex].value);
-			}
-		}
-		function getText(id) {
-			var sel = document.getElementById(id);
-			if (sel && sel.options) {
-				alert(sel.options[sel.selectedIndex].text);
-			}
-		}
-	</script>
-
-
 </body>
 
 </html>

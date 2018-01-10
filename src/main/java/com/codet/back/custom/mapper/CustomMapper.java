@@ -2,6 +2,7 @@ package com.codet.back.custom.mapper;
 
 import java.util.List;
 
+import com.codet.pojo.City;
 import com.codet.pojo.Custom;
 import com.codet.pojo.CustomExtend;
 import com.codet.pojo.CustomQueryPojo;
@@ -24,5 +25,22 @@ public interface CustomMapper {
 	public List<CustomExtend> findCustomByName(String name) throws Exception;
 	//通过ID查看客户详情
 	public CustomExtend selectCustom(String customid)throws Exception;
+	
+	/**
+	 *分页查找客户,模糊查找
+	 * @param pageNo
+	 * @param pageSize
+	 * @param keyword
+	 * @param searchType
+	 * @return
+	 * @throws Exception
+	 */
+	public List<CustomExtend> findPageCustomByCustomid(CustomQueryPojo cuqCustomQueryPojo) throws Exception;
+
+	public int findCustomAllCount(CustomQueryPojo cuqCustomQueryPojo) throws Exception;
+
+	public List<CustomExtend> findPageCustomBySearchtype(
+			CustomQueryPojo customQueryPojo) throws Exception;
+	
 	
 }

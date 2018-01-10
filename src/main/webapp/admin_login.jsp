@@ -70,6 +70,6 @@
 			</div>
 		</div>
 		
-		<div class="loginbm">codeT 荣誉出品</div>
+		<div class="loginbm">xin 荣誉出品</div>
 	</body>
 </html>
